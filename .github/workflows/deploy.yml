@@ -13,7 +13,7 @@ jobs:
       run:
         working-directory: ./workspaces/tierundarzt
     env:
-      FTP_PASS: ${{ secrets.FTP_PASS_TIERUNDARZT }}
+      FTP_PASS: ${{ secrets.FTP_PASS }}
     steps:
       - uses: actions/checkout@v3
       - run: yarn install
