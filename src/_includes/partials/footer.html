@@ -1,0 +1,20 @@
+<section class="pt-6 pb-0 leading-relaxed">
+  <div class="flex flex-col xl:flex-row xl:justify-between xl:items-start">
+    <div class="my-1">
+      <div><span class="font-bold">Tier &amp; Arzt</span> — Tierarztpraxis</div>
+      <div>Dr. Jennifer Covi-Dijkhuizen (GPCert Ophthal)</div>
+    </div>
+    <div class="my-1">
+      <address>{{ settings.telephone }}</address>
+      <address>
+        <a href="mailto:{{ settings.email }}">{{ settings.email }}</a>
+      </address>
+    </div>
+    <div class="my-1">
+      <div>{{ settings.address_street }}</div>
+      <div>
+        {{ settings.address_postcode }} {{ settings.address_city }}, {{ settings.address_land }}
+      </div>
+    </div>
+  </div>
+</section>

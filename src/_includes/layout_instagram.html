@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "./partials/meta.html" %}
+    <title>Instagram post</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+  </head>
+
+  <body id="instagram">
+    <div
+      class="bg-image square"
+      style="
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.22),
+            rgba(0, 0, 0, 0.33),
+            rgba(0, 0, 0, 0.55)
+          ),
+          url(/static/img/photos/max.jpg);
+      "
+    >
+      <div class="content">
+        <div class="text-center">
+          <div class="my-6 text-center">
+            <div>
+              Wir sind im Urlaub vom<br /><span class="font-bold">14.</span> bis
+              <span class="font-bold">23.</span> April
+            </div>
+          </div>
+          <div class="my-6 text-center">
+            <div>Bei dringenden Fällen<br />überweisen wir Sie gerne zu:</div>
+            <p class="text-xl">Dr. Spielberger & Mag. Oberthaler</p>
+            <p class="font-bold">0664 9697339</p>
+          </div>
+        </div>
+      </div>
+      <img src="/static/img/Tier-&-Arzt_logo.svg" />
+      <div class="footer website">tierundarzt.at</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<title>
+  {% if title %}{{ title }} | {{ settings.title }}{% else %}{{ settings.title }}{% endif %}
+</title>
+<meta
+  property="og:title"
+  content="{% if title %}{{ title }} | {{ settings.title }}{% else %}{{ settings.title }}{% endif %}"
+/>
+
+<meta
+  name="description"
+  content="{% if description %}{{ description }} | {{ settings.description }}{% else %}{{ settings.description }}{% endif %}"
+/>
+<meta
+  property="og:description"
+  content="{% if description %}{{ description }} | {{ settings.description }}{% else %}{{ settings.description }}{% endif %}"
+/>
+
+<meta charset="UTF-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="Robots" content="All" />
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="alternate" hreflang="en" href="https://tierundarzt.at" />
+<link rel="alternate" hreflang="nl" href="https://tierundarzt.at/nl" />
+
+<meta property="og:type" content="website" />
+<!-- <meta property="og:image" content="https://tierundarzt.at/static/img/logo.png" /> -->
+<meta property="og:url" content="https://tierundarzt.at/{{ path }}" />
+<link rel="canonical" href="https://tierundarzt.at/{{ path }}" />

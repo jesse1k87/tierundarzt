@@ -1,0 +1,37 @@
+---
+layout: default
+path: /team/
+---
+
+<section
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),
+      url(/static/img/photos/hug-dog.jpg);
+  "
+>
+  <h1 class="text-white">Team</h1>
+</section>
+
+<section>
+  <h2>Dr. Jennifer Covi-Dijkhuizen</h2>
+  <div>Intro</div>
+</section>
+
+<section>
+  <h3>aksldkalsdk</h3>
+  <div>
+    {% for item in settings.timeline_jcd %}
+    <div class="flex flex-row">
+      <div style="min-width: 12%">{{ item.period }}</div>
+      <div>
+        <div>{{ item.title }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <h2>Martina Hagele</h2>
+  <div>...</div>
+</section>

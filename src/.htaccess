@@ -1,0 +1,6 @@
+RewriteEngine on
+Options -Indexes
+
+Redirect /ci https://github.com/jesse01987/tierundarzt/actions
+Redirect /instagram https://instagram.com/tierundarzt
+Redirect /maps https://goo.gl/maps/MfdjSa5RmTVmrQ6P6

@@ -1,0 +1,21 @@
+name: deploy_tierundarzt
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'src/**'
+jobs:
+  deploy_tierundarzt:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./workspaces/tierundarzt
+    env:
+      FTP_PASS: ${{ secrets.FTP_PASS_TIERUNDARZT }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: yarn install
+      - run: yarn build
+      - run: node deploy.js

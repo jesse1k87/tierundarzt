@@ -1,0 +1,13 @@
+@font-face {
+  font-weight: 300;
+  font-family: 'Meta Serif Pro';
+  font-style: normal;
+  src: url('./../fonts/meta/MetaSerifPro-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-family: 'Meta Serif Pro';
+  font-style: normal;
+  src: url('./../fonts/meta/MetaSerifPro-Bold.woff2') format('woff2');
+}

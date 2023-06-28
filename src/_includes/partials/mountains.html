@@ -1,0 +1,7 @@
+<div class="mountains">
+  {% for mountain in settings.mountains %}
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path d="{{ mountain }}"></path>
+  </svg>
+  {% endfor %}
+</div>

@@ -1,0 +1,93 @@
+---
+# banner:
+#  - Vom 11. bis 13. April sind wir geschlossen.
+#  - "Bei dringenden Fällen überweisen wir Sie gerne zu"
+#  - "Dr. Spielberger und Mag. Oberthaler:"
+#  - 0664 9697339
+title: Tier & Arzt - Tierarztpraxis Innsbruck
+description: Tierpraxis in Innsbruck, Tirol
+email: praxis@tierundarzt.at
+website: www.tierundarzt.at
+telephone: 0512-890-511
+telephone_clean: '+43512890511'
+address_street: Eduard-Bodem-Gasse 3
+address_street_add: EG nord
+address_postcode: 6020
+address_city: Innsbruck
+address_region: Tirol
+address_land: Österreich
+instagram: tierundarzt
+pages:
+  - title: Über uns
+    url: '/'
+  - title: Medizin & Philosophie
+    url: '/medizin/'
+  - title: DSGVO
+    url: '/dsgvo/'
+  - title: Kontakt
+    url: '/kontakt/'
+openingtimes:
+  - day: Montag
+    times:
+      - 09.00 - 12.00 Uhr
+      - 14.00 - 18.00 Uhr
+  - day: Dienstag
+    times:
+      - 09.00 - 12.00 Uhr
+      - 14.00 - 16.00 Uhr
+  - day: Mittwoch
+    times:
+      - 09.00 - 12.00 Uhr
+      - 14.00 - 16.00 Uhr
+  - day: Donnerstag
+    times:
+      - 09.00 - 12.00 Uhr
+  - day: Freitag
+    times:
+      - 09.00 - 12.00 Uhr
+      - 14.00 - 18.00 Uhr
+  - day: Samstag
+    times:
+      - 09.00 - 12.00 Uhr
+  - day: Sonntag
+    times:
+      - Geschlossen
+philosophie:
+  - title: 01 - Hochwertige medizinische Versorgung
+    text: Wir bieten den höchsten Standard von Diagnosen, Technologie, Therapien und medizinischem Handwerk. Wir wollen moderne Medizin bereitstellen, die auf unsere Kompetenz und langjähriger internationaler Erfahrung basiert.
+  - title: 02 - Zusammenarbeit mit Spezialisten
+    text: Die Zusammenarbeit mit weiteren Spezialisten aus anderen Fachrichtungen (Onkologie, Chirurgie, etc.) ist uns ein großes Anliegen, damit wir unseren Patienten die beste Behandlung von einem großen Leistungsspektrum garantieren können.
+  - title: 03 - Stressfrei und mehr Zeit
+    text: Wir haben die Warte- und Behandlungsräume so entwickelt, damit sie eine stressfreie und beruhigende Umgebung für Tier und Mensch sind. Mittels Terminvereinbarungen können wir uns ausreichend Zeit für unsere Patienten nehmen, um ausführlich auf die Tiere eingehen zu können.
+  - title: 04 - Neueste Behandlungsmethoden
+    text: Wir bieten unseren Kunden 'state of the art' Untersuchungen und Behandlungen an. Um auf der Höhe der Zeit und stets im Einklang mit dem aktuellen Stand der Wissenschaft (z.B. Impfung nur so oft wie medizinisch sinnvoll) zu bleiben, sind regelmäßige Fortbildungen unerlässlich.
+  - title: 05 - Vorbeugend und Nachhaltig
+    text: Mittels vorbeugender Gesundenuntersuchungen können wir Krankheiten frühzeitig erkennen und behandeln. Die Lebenserwartung der Patienten wird dadurch deutlich verlängert, die Tiere haben eine höhere Lebensqualität.
+  - title: 06 - Spezielle Bedürfnisse
+    text: Wir nehmen Tiere mit besonderen Bedürfnissen stationär auf und versorgen sie medizinisch. Außerdem bieten wir spezielle Beratungen in Diätetik und Verhaltenskunde an.
+timeline_jcd:
+  - period: 09/2019 - heute
+    title: Tierärztin, Tierplus, Innsbruck, AT
+  - period: 10/2018 - 8/2019
+    title: Tierärztin, Tierarztpraxis Uderns, Uderns, AT
+  - period: 12/2016
+    title: Verteidigung Dissertation mit magna cum laudae, Leipzig, D
+  - period: 2/2016 - 8/2018
+    title: Tierärztin, Tierarztpraxis Moerstraten, NL
+  - period: 9/2015 - 2/2016
+    title: Tierärztin, Tierarztpraxis Yerseke, NL
+  - period: 5/2015 - 4/2016
+    title: Wissenschaftliche Beraterin, Whale and Dolphin Conservation, D
+  - period: 2/2014 - 8/2015
+    title: Forschungsassistentin und Co-Managerin, SEAMARCO, NL
+  - period: 9/2013 - 12/2013
+    title: Tierärztin, Dr. Schöpf-Grey, Hall i.T., AT
+  - period: 3/2011 - 8/2013
+    title: Doktorandin in der Handplastischen Chirurgie, Erlangen-Nürnberg, D
+  - period: 2/2011
+    title: Magistra veterinaria medicinae, Veterinärmedizinische Universität Wien
+mountains:
+  - M0,96L120,80C240,64,480,32,720,26.7C960,21,1200,43,1320,53.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z
+  - M0,96L60,112C120,128,240,160,360,170.7C480,181,600,171,720,144C840,117,960,75,1080,53.3C1200,32,1320,32,1380,32L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z
+  - M0,288L60,266.7C120,245,240,203,360,165.3C480,128,600,96,720,101.3C840,107,960,149,1080,160C1200,171,1320,149,1380,138.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z
+  - M0,256L60,261.3C120,267,240,277,360,250.7C480,224,600,160,720,133.3C840,107,960,117,1080,133.3C1200,149,1320,171,1380,181.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z

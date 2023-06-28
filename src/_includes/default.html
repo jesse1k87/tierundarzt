@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "./partials/meta.html" %}
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    {% include "./partials/contact-form-js.html" %} {% include "./partials/google.html" %}
+  </head>
+  <body>
+    {% include "./partials/navbar.html" %}
+    <div class="content">
+      {% include "./partials/banner.html" %} {{ content | safe }} {% include
+      "./partials/footer.html" %}
+    </div>
+    {% include "./partials/mountains.html" %}
+  </body>
+</html>

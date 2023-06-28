@@ -1,0 +1,99 @@
+---
+layout: default
+path: /medizin/
+---
+
+<section
+  class="py-24 h-64"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)),
+      url(/static/img/photos/mouse.jpg);
+  "
+>
+  <h1 class="text-white">Spezialisierung &<br />Zusammenarbeit</h1>
+</section>
+
+<section class="py-12 lg:py-16">
+  <h2 class="mb-8">Unser medizinischer Fokus.</h2>
+
+  <div class="py-0 xl:grid xl:gap-12 xl:grid-cols-2">
+    <div>
+      <div class="bg-image h-64" style="background-image: url(/static/img/photos/husky.jpg)"></div>
+      <h3>Augenheilkunde</h3>
+      <p>
+        Durch die Fachausbildung von Improve International können wir uns besonderen und schwierigen
+        Augenkrankheiten widmen, die ebenfalls ein spezielles Untersuchungsinstrumentarium und
+        Erfahrung erfordert.
+      </p>
+    </div>
+    <div class="mt-16 xl:mt-0">
+      <div
+        class="bg-image h-64 bg-center"
+        style="background-image: url(/static/img/photos/rontgen.jpeg)"
+      ></div>
+      <h3>Radiologie und Ultraschall</h3>
+      <p>
+        Die Radiologie ermöglicht uns eine nicht-invasive und schmerzfreie Untersuchungsmethode
+        unserer Patienten und eine damit einhergehende optimale internistische Diagnose und Therapie
+        unserer Patienten.
+      </p>
+    </div>
+    <div class="mt-16 xl:mt-0">
+      <div
+        class="bg-image h-64"
+        style="background-image: url(/static/img/photos/dog-drinking.jpg)"
+      ></div>
+      <h3>Innere Medizin</h3>
+      <p>
+        Anhand einer ausführlichen klinischen Untersuchung und der Möglichkeit einer sofortigen
+        Blutuntersuchung im Hauslabor werden komplexe internistische Krankheiten frühzeitig
+        diagnostiziert und nach den neuesten "state of the art" -Behandlungsmethoden therapiert. Die
+        Tiere werden engmaschig kontrolliert, wenn nötig stationär aufgenommen, bis die Medikation
+        gut eingestellt ist und sie entlassen werden können
+      </p>
+    </div>
+    <div class="mt-16 xl:mt-0">
+      <div
+        class="bg-image h-64"
+        style="background-image: url(/static/img/photos/happy-dog.jpg)"
+      ></div>
+      <h3>Onkologie</h3>
+      <p>
+        Einer der häufigsten Erkrankungen bei Tier und Mensch sind Tumore. Wir arbeiten eng mit
+        einem onkologischen Konsiliartierarzt zusammen, damit wir eine präzise Diagnose und
+        maßgeschneiderte Behandlung anbieten können.
+      </p>
+    </div>
+    <div class="mt-16 xl:mt-0">
+      <div
+        class="bg-image h-64"
+        style="background-image: url(/static/img/photos/chirurgie.jpg)"
+      ></div>
+      <h3>Chirurgie</h3>
+      <p>
+        Die Chirurgie ist das Teilgebiet der Medizin, das sich mit der operativen Behandlung von
+        Krankheiten und Verletzungen beschäftigt. Durch hochwertige Fortbildungen werden bei uns
+        auch komplizierte Fälle behandelt.
+      </p>
+    </div>
+    <div class="mt-16 xl:mt-0">
+      <div
+        class="bg-image h-64"
+        style="background-image: url(/static/img/photos/cat-wave.jpg)"
+      ></div>
+      <h3>Orthopädie</h3>
+      <p>
+        Wir arbeiten mit erfahrenen Kollegen zusammen, damit auch schwierige Knochenbrüche oder
+        Gelenksprobleme chirurgisch versorgt werden können.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="mb-8">Unsere Philosophie</h2>
+  {% for item in settings.philosophie %}
+  <h3>{{ item.title }}</h3>
+  <p class="w-full xl:w-2/3">{{ item.text }}</p>
+  {% endfor %}
+</section>

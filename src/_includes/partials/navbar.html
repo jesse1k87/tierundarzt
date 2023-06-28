@@ -1,0 +1,37 @@
+<section class="bg-pine">
+  <nav
+    class="px-6 py-4 md:p-6 lg:py-6 xl:py-8 flex flex-nowrap flex-wrap justify-between items-start"
+  >
+    <div class="flex flex-col justify-center self-start">
+      <a
+        class="logo flex justify-center items-end h-12 md:h-24 lg:h-32 w-12 md:w-24 lg:w-32"
+        alt="Logo of Tier & Arzt"
+        href="/"
+      ></a>
+      <div class="text-white text-xs tracking-widest hidden lg:flex self-center">
+        TIERARZTPRAXIS
+      </div>
+    </div>
+
+    <input type="checkbox" class="check hidden" id="checked" />
+    <label class="menu-toggle md:hidden lg:hidden order-3 justify-between" for="checked">
+      <span class="bar top"></span>
+      <span class="bar middle"></span>
+      <span class="bar bottom"></span>
+    </label>
+
+    <div id="menu" class="hidden md:flex items-center flex-grow md:flex md:w-auto">
+      <ul class="justify-end flex-1 md:pt-0 md:flex">
+        {% for item in settings.pages %}
+        <li class="text-center">
+          <a class="inline-block p-6" href="{{ item.url }}">
+            <span class="button text-white {{ 'border-b-2 border-white' if page.url == item.url  }}"
+              >{{ item.title }}</span
+            >
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</section>

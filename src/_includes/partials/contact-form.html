@@ -1,0 +1,27 @@
+<form id="contact-form" class="flex flex-col">
+  <input type="hidden" name="contact_number" />
+  <div>
+    <label>Name</label>
+    <input id="contact-form-name" name="name" />
+  </div>
+  <div>
+    <label>Ihre Telefonnummer</label>
+    <input id="contact-form-phone" name="phone" placeholder="06 123 456 789" />
+  </div>
+  <div>
+    <label>Ihre E-Mail-Adresse</label>
+    <input id="contact-form-email" name="email" placeholder="example@example.com" />
+  </div>
+  <div>
+    <label>Ihre Nachricht</label>
+    <textarea id="contact-form-message" name="message"></textarea>
+  </div>
+  <div class="flex-row mt-4">
+    <button id="contact-form-button" type="submit" class="pine">Senden</button>
+    <button id="contact-form-reset" type="reset" class="ml-4 hidden">Reset</button>
+  </div>
+  <div id="contact-form-errors"></div>
+  <div id="contact-form-status" class="hidden leading-normal">
+    Danke für Ihre Nachricht. Wir werden Sie in Kürze kontaktieren.
+  </div>
+</form>

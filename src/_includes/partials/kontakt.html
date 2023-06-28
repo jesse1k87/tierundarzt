@@ -1,0 +1,48 @@
+<div class="md:grid gap-16 md:grid-cols-2">
+  <div class="pb-8">
+    <h2>Adresse</h2>
+    <div>{{ settings.address_street }} ({{ settings.address_street_add }})</div>
+    <div>{{ settings.address_postcode }} {{ settings.address_city }}</div>
+    <div>{{ settings.address_region }}, {{ settings.address_land }}</div>
+
+    <h2 class="mt-4">E-mail</h2>
+    <address><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></address>
+
+    <h2 class="mt-4">Telefon</h2>
+    <address>{{ settings.telephone }}</address>
+
+    <div class="mt-2 font-bold">Außerhalb unser Öffnungszeiten:</div>
+    Notdienst Innsbruck-Stadt<br />
+    <address>0676 88 508 82 444</address>
+    <p>
+      Mehr info:
+      <a href="https://www.tierarzt-notdienst.tirol/notdienst" target="_blank"
+        >www.tierarzt-notdienst.tirol</a
+      >
+    </p>
+
+    <h2 class="mt-4">Erreichbarkeit</h2>
+    <div>
+      &bull; Öffentlich erreichbar mit Buslinien
+      <span style="color: white; background: #385ea7; padding: 0.1em 0.4em; border-radius: 3px"
+        >T</span
+      >
+    </div>
+    <div>&bull; Parkplatzen beim Eingang verfügbar.</div>
+    <div>&bull; Praxis ist barrierefrei.</div>
+  </div>
+  <div>
+    <h2>Öffnungszeiten</h2>
+    <p class="italic">Termin nur nach Vereinbarung.</p>
+    {% for day in settings.openingtimes %}
+    <div class="flex flex-row mb-4">
+      <div class="w-36">{{ day.day }}</div>
+      <div>
+        {% for time in day.times %}
+        <div>{{ time }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
