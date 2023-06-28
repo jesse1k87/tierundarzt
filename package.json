@@ -11,8 +11,15 @@
     "dev:live": "npm-run-all --parallel css eleventy browsersync watch",
     "dev": "npm-run-all --parallel css eleventy browsersync",
     "eleventy": "eleventy --watch --serve",
+    "sort-package-json": "sort-package-json \"./package.json\" \"workspaces/**/package.json\"",
     "format": "prettier --write .",
     "watch": "node watch.js"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
@@ -32,13 +39,11 @@
     "postcss-cli": "^10.0.0",
     "prettier": "^2.7.1",
     "prismjs": "^1.21.0",
+    "sort-package-json": "^2.4.1",
     "tailwindcss": "^3.2.2"
   },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "useTabs": false
+  "engines": {
+    "node": ">=16.14.0"
   },
   "uploadConfig": {
     "user": "tierundarztat",
