@@ -1,4 +1,4 @@
-name: deploy_tierundarzt
+name: deploy
 on:
   workflow_dispatch:
   push:
@@ -7,7 +7,7 @@ on:
     paths:
       - 'src/**'
 jobs:
-  deploy_tierundarzt:
+  deploy:
     runs-on: ubuntu-latest
     defaults:
       run:
