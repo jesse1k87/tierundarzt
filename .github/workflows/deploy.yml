@@ -6,12 +6,10 @@ on:
       - 'main'
     paths:
       - 'src/**'
+      - '.github/**'
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./workspaces/tierundarzt
     env:
       FTP_PASS: ${{ secrets.FTP_PASS }}
     steps:
