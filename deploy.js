@@ -15,7 +15,6 @@ const upload = (config) => {
     localDir: config.localDir || '',
     remoteDir: config.remoteDir || './www',
   };
-  console.log('🚀', options);
   deploy(options, {
     dryRun: false,
     exclude: ['node_modules', 'package.json', '.turbo'],

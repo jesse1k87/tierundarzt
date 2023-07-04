@@ -11,7 +11,7 @@
     "dev:live": "npm-run-all --parallel css eleventy browsersync watch",
     "dev": "npm-run-all --parallel css eleventy browsersync",
     "eleventy": "eleventy --watch --serve",
-    "sort-package-json": "sort-package-json \"./package.json\" \"workspaces/**/package.json\"",
+    "sort-package-json": "sort-package-json \"./package.json\"",
     "format": "prettier --write .",
     "watch": "node watch.js"
   },
