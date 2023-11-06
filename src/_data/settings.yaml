@@ -8,8 +8,10 @@ title: Tier & Arzt - Tierarztpraxis Innsbruck
 description: Tierpraxis in Innsbruck, Tirol
 email: praxis@tierundarzt.at
 website: www.tierundarzt.at
-telephone: 0512-890-511
-telephone_clean: '+43512890511'
+# telephone: 0512-890-511
+telephone: 06 76 5260 438
+# telephone_clean: '+43512890511'
+telephone_clean: '+436765260438'
 address_street: Eduard-Bodem-Gasse 3
 address_street_add: EG nord
 address_postcode: 6020
