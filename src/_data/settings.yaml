@@ -53,6 +53,9 @@ openingtimes:
   - day: Sonntag
     times:
       - Geschlossen
+  - day: Feiertage
+    times:
+      - Geschlossen
 philosophie:
   - title: 01 - Hochwertige medizinische Versorgung
     text: Wir bieten den höchsten Standard von Diagnosen, Technologie, Therapien und medizinischem Handwerk. Wir wollen moderne Medizin bereitstellen, die auf unsere Kompetenz und langjähriger internationaler Erfahrung basiert.
