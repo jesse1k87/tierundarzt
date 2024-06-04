@@ -31,21 +31,23 @@ pages:
 openingtimes:
   - day: Montag
     times:
-      - 09.00 - 11.00 Uhr
-      - 12.00 - 17.00 Uhr
+      - 09.00 - 12.00 Uhr
+      - 14.00 - 17.00 Uhr
   - day: Dienstag
     times:
-      - 09.00 - 11.00 Uhr
-      - 12.00 - 17.00 Uhr
+      - 09.00 - 12.00 Uhr
+      - 14.00 - 16.00 Uhr
   - day: Mittwoch
     times:
       - 09.00 - 12.00 Uhr
+      - 14.00 - 16.00 Uhr
   - day: Donnerstag
     times:
       - 09.00 - 12.00 Uhr
+      - 14.00 - 16.00 Uhr
   - day: Freitag
     times:
-      - 09.00 - 11.00 Uhr
+      - 09.00 - 12.00 Uhr
       - 13.00 - 17.00 Uhr
   - day: Samstag
     times:
