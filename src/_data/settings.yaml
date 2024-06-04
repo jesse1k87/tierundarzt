@@ -49,10 +49,7 @@ openingtimes:
     times:
       - 09.00 - 12.00 Uhr
       - 13.00 - 17.00 Uhr
-  - day: Samstag und Sonntag
-    times:
-      - Geschlossen
-  - day: Feiertage
+  - day: Samstag, Sonntag & Feiertage
     times:
       - Geschlossen
 philosophie:
