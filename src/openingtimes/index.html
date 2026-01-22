@@ -1,0 +1,25 @@
+---
+layout: layout_schild
+path: /openingtimes/
+---
+
+<div class="flex flex-col gap-8 w-1/2">
+  <div>
+    <img src="/static/img/Tier-&-Arzt_logo_black.svg" style="width: 8em; height: 8em" />
+  </div>
+  <div class="flex flex-col gap-4">
+    <h2>Öffnungszeiten*</h2>
+    <div class="italic">Termin nur nach telefonischer Vereinbarung.</div>
+    {% for day in settings.openingtimes %}
+    <div class="flex flex-row gap-2">
+      <div class="w-[200px]">{{ day.day }}</div>
+      <div>
+        {% for time in day.times %}
+        <div>{{ time }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div>*neue Öffnungszeiten ab 23. Januar 2026</div>
+</div>
