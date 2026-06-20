@@ -46,11 +46,5 @@
   },
   "engines": {
     "node": ">=16.14.0"
-  },
-  "uploadConfig": {
-    "user": "tierundarztat",
-    "host": "tieruo.ssh.transip.me",
-    "localDir": "_site",
-    "remoteDir": "./www"
   }
 }

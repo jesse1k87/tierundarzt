@@ -1,6 +1,12 @@
-const pkg = require('./package.json');
 const { deploy } = require('sftp-sync-deploy');
 require('dotenv').config();
+
+const uploadConfig = {
+  user: 'tierundarztat',
+  host: 'tieruo.ssh.transip.me',
+  localDir: '_site',
+  remoteDir: './www',
+};
 
 const MAX_ATTEMPTS = 3;
 const RETRY_DELAY_MS = 5000;
@@ -15,10 +21,10 @@ const upload = async (config) => {
   const options = {
     host: config.host,
     port: 22,
-    username: config.user || config.host, // Username is same as host
+    username: config.user,
     password: process.env.FTP_PASS,
-    localDir: config.localDir || '',
-    remoteDir: config.remoteDir || './www',
+    localDir: config.localDir,
+    remoteDir: config.remoteDir,
   };
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
@@ -42,4 +48,4 @@ const upload = async (config) => {
   }
 };
 
-upload(pkg.uploadConfig);
+upload(uploadConfig);
