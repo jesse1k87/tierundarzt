@@ -4,16 +4,24 @@ on:
   push:
     branches:
       - 'main'
-    paths:
-      - 'src/**'
-      - '.github/**'
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      FTP_PASS: ${{ secrets.FTP_PASS }}
     steps:
-      - uses: actions/checkout@v3
-      - run: npm install
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
       - run: npm run build
-      - run: node deploy.js
+      - name: Upload site to server
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+        with:
+          username: tierundarztat
+          server: tieruo.ssh.transip.me
+          port: 22
+          password: ${{ secrets.FTP_PASS }}
+          local_path: './_site/*'
+          remote_path: './www'
+          sftp_only: true
+          delete_remote_files: false

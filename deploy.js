@@ -1,8 +1,19 @@
-const pkg = require('./package.json');
 const { deploy } = require('sftp-sync-deploy');
 require('dotenv').config();
 
-const upload = (config) => {
+const uploadConfig = {
+  user: 'tierundarztat',
+  host: 'tieruo.ssh.transip.me',
+  localDir: '_site',
+  remoteDir: './www',
+};
+
+const MAX_ATTEMPTS = 3;
+const RETRY_DELAY_MS = 5000;
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const upload = async (config) => {
   if (!process.env.FTP_PASS) {
     throw Error('No password in process.env.FTP_PASS');
   }
@@ -10,23 +21,31 @@ const upload = (config) => {
   const options = {
     host: config.host,
     port: 22,
-    username: config.user || config.host, // Username is same as host
+    username: config.user,
     password: process.env.FTP_PASS,
-    localDir: config.localDir || '',
-    remoteDir: config.remoteDir || './www',
+    localDir: config.localDir,
+    remoteDir: config.remoteDir,
   };
-  deploy(options, {
-    dryRun: false,
-    exclude: ['node_modules', 'package.json', '.turbo'],
-    excludeMode: 'remove',
-    forceUpload: config.forceUpload ? Boolean(config.forceUpload) : true,
-  })
-    .then(() => {
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      await deploy(options, {
+        dryRun: false,
+        exclude: ['node_modules', 'package.json', '.turbo'],
+        excludeMode: 'remove',
+        forceUpload: config.forceUpload ? Boolean(config.forceUpload) : true,
+      });
       console.log('Done');
-    })
-    .catch((err) => {
-      console.error('Error ', err);
-    });
+      return;
+    } catch (err) {
+      console.error(`Deploy attempt ${attempt}/${MAX_ATTEMPTS} failed:`, err);
+      if (attempt === MAX_ATTEMPTS) {
+        process.exitCode = 1;
+        return;
+      }
+      await wait(RETRY_DELAY_MS);
+    }
+  }
 };
 
-upload(pkg.uploadConfig);
+upload(uploadConfig);
