@@ -3,7 +3,7 @@ layout: default
 path: index
 ---
 
-<section
+<!-- <section
   style="
     background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)),
       url(/static/img/photos/happy-dog-with-owner-in-field.jpg);
@@ -12,6 +12,24 @@ path: index
   <h1 class="text-white h-72">
     Liebevolle Pflege,<br />Moderne Medizin,<br />Ihre Familientierärztin.
   </h1>
+</section> -->
+
+<section
+  class="text-center text-white"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.55)),
+      url(/static/img/photos/max2.jpeg);
+  "
+>
+  <h2>Liebevolle Pflege, Moderne Medizin, Ihre Familientierärztin.</h2>
+  <p>Wir freuen uns von Ihnen zu hören.</p>
+  <div class="flex justify-center">
+    <a href="{{ settings.petleo }}" class="button sage" target="_blank">Buch ein Termin online</a>
+  </div>
+  <div class="mt-4">
+    Oder rufen Sie uns an:<br /><span class="font-bold">{{ settings.telephone }}</span>
+    <p>Termin nur nach Vereinbarung.</p>
+  </div>
 </section>
 
 <section class="bg-sage-200">
@@ -59,28 +77,11 @@ path: index
   </div>
 </section>
 
-<section
-  class="text-center text-white"
-  style="
-    background-image: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.55)),
-      url(/static/img/photos/max2.jpeg);
-  "
->
-  <h2>Neugierig geworden?</h2>
-  <p>Wir freuen uns von Ihnen zu hören.</p>
-  <div class="flex justify-center">
-    <a href="/kontakt" class="button sage">Besuchen Sie uns</a>
-  </div>
-  <div class="mt-4">
-    Oder rufen Sie uns an:<br /><span class="font-bold">{{ settings.telephone }}</span>
-  </div>
-</section>
-
 <section class="content-center items-center">
   {% include "./_includes/partials/kontakt.html" %}
 </section>
 
-<section>
+<!-- <section>
   <div class="lg:grid lg:gap-24 lg:grid-cols-2">
     <div class="hidden lg:flex">
       <iframe
@@ -97,4 +98,4 @@ path: index
       {% include "./_includes/partials/contact-form.html" %}
     </div>
   </div>
-</section>
+</section> -->

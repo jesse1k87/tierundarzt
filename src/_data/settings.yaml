@@ -1,17 +1,11 @@
 ---
-# banner:
-#  - Vom 6. bis 8. Juli sind wir geschlossen.
-#  - Ab dem 10. Juli sind wir wieder für Sie da.
-#  - "Dr. Spielberger und Mag. Oberthaler:"
-#  - 0664 9697339
 title: Tier & Arzt - Tierarztpraxis Innsbruck
 description: Tierpraxis in Innsbruck, Tirol
 email: praxis@tierundarzt.at
 website: www.tierundarzt.at
 # telephone: 0512-890-511
-# telephone_clean: '+43512890511'
 telephone: 0676 526 04 38
-telephone_clean: '+436765260438'
+telephone_clean: +436765260438
 address_street: Eduard-Bodem-Gasse 3
 address_street_add: EG nord
 address_postcode: 6020
@@ -19,15 +13,16 @@ address_city: Innsbruck
 address_region: Tirol
 address_land: Österreich
 instagram: tierundarzt
+petleo: 'https://petleo.app/?iframe=true&group=0&lang=de&redirect_url=/clinic/32286151e370e832b268af43e70786b2171d1b2b9ecc51f3979c59e18f40ca43/branch/1/book-appointment/'
 pages:
   - title: Über uns
     url: '/'
-  - title: Medizin & Philosophie
+  - title: Medizin
     url: '/medizin/'
-  - title: DSGVO
-    url: '/dsgvo/'
   - title: Kontakt
     url: '/kontakt/'
+  - title: Termin buchen
+    url: 'https://petleo.app/?iframe=true&group=0&lang=de&redirect_url=/clinic/32286151e370e832b268af43e70786b2171d1b2b9ecc51f3979c59e18f40ca43/branch/1/book-appointment/'
 openingtimes:
   - day: Montag
     times:

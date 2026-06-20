@@ -1,7 +1,5 @@
 <section class="bg-pine">
-  <nav
-    class="px-6 py-4 md:p-6 lg:py-6 xl:py-8 flex flex-nowrap flex-wrap justify-between items-start"
-  >
+  <nav class="px-6 py-4 md:p-6 lg:py-6 xl:py-8 flex flex-nowrap flex-wrap justify-between">
     <div class="flex flex-col justify-center self-start">
       <a
         class="logo flex justify-center items-end h-12 md:h-24 lg:h-32 w-12 md:w-24 lg:w-32"
@@ -31,6 +29,14 @@
           </a>
         </li>
         {% endfor %}
+
+        <!-- <li class="text-center">
+          <a class="inline-block p-6" href="tel:{{ settings.telephone_clean }}">
+            <span class="button text-white {{ 'border-b-2 border-white' if page.url == item.url  }}"
+              >{{ settings.telephone }}</span
+            >
+          </a>
+        </li> -->
       </ul>
     </div>
   </nav>
