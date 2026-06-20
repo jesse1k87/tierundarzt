@@ -4,16 +4,16 @@ on:
   push:
     branches:
       - 'main'
-    paths:
-      - 'src/**'
-      - '.github/**'
 jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
       FTP_PASS: ${{ secrets.FTP_PASS }}
     steps:
-      - uses: actions/checkout@v3
-      - run: npm install
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
       - run: npm run build
       - run: node deploy.js
