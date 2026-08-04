@@ -14,7 +14,7 @@
 // safe to run unconditionally; production builds (PATH_PREFIX unset or "/") are
 // left byte-identical.
 //
-// Usage: node scripts/rewrite-prefix.js <siteDir>   (defaults to "_site")
+// Usage: node scripts/rewrite-prefix.js <siteDir>   (defaults to "docs")
 
 const fs = require('fs');
 const path = require('path');
@@ -27,7 +27,7 @@ if (rawPrefix === '/' || rawPrefix === '') {
 // Normalize "/slug/", "slug", "/slug" -> "/slug"
 const prefix = '/' + rawPrefix.replace(/^\/+|\/+$/g, '');
 
-const siteDir = path.resolve(process.argv[2] || '_site');
+const siteDir = path.resolve(process.argv[2] || 'docs');
 
 // Match url( + optional quote + a single leading slash that is NOT followed by
 // another slash (so protocol-relative //host is skipped). Relative ./ and ../
