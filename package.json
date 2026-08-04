@@ -1,21 +1,27 @@
 {
-  "name": "websites",
+  "name": "tierundarzt",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": ".eleventy.js",
   "packageManager": "npm@10.9.7",
-  "workspaces": [
-    "sites/*"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "browsersync": "turbo run browsersync",
-    "css": "turbo run css",
-    "debug": "turbo run debug",
-    "eleventy": "turbo run eleventy",
-    "format": "turbo run format",
-    "sort-package-json": "turbo run sort-package-json"
+    "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production postcss src/static/css/tailwind.css --o _site/static/css/style.css",
+    "browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open",
+    "css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
+    "debug": "set DEBUG=* & eleventy",
+    "deploy": "node scripts/deploy.js",
+    "dev": "npm-run-all --parallel css eleventy browsersync",
+    "dev:live": "npm-run-all --parallel css eleventy browsersync watch",
+    "eleventy": "eleventy --watch --serve",
+    "format": "prettier --write .",
+    "sort-package-json": "sort-package-json \"./package.json\"",
+    "watch": "node watch.js"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false
   },
   "keywords": [],
   "author": "",
@@ -45,10 +51,14 @@
     "sort-package-json": "^2.4.1",
     "ssh2-sftp-client": "^12.1.1",
     "tailwindcss": "^3.2.2",
-    "turbo": "^2.9.18",
     "yml": "^1.0.0"
   },
   "engines": {
     "node": ">=16.14.0"
+  },
+  "uploadConfig": {
+    "user": "tierundarztat",
+    "host": "tieruo.ssh.transip.me",
+    "localDir": "_site"
   }
 }

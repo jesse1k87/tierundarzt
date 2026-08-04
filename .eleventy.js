@@ -16,7 +16,7 @@ module.exports = function (eleventyConfig) {
   // Merge data instead of overriding
   eleventyConfig.setDataDeepMerge(true);
 
-  eleventyConfig.addGlobalData('gitsha', require('../../scripts/gitsha'));
+  eleventyConfig.addGlobalData('gitsha', require('./scripts/gitsha'));
 
   // Mark preview builds so templates can emit a noindex robots tag
   eleventyConfig.addGlobalData('isPreview', () => !!process.env.PREVIEW);

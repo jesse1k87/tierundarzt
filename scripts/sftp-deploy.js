@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const SftpClient = require('ssh2-sftp-client');
 
-const DEFAULT_EXCLUDE = new Set(['node_modules', 'package.json', '.turbo', '.DS_Store']);
+const DEFAULT_EXCLUDE = new Set(['node_modules', 'package.json', '.DS_Store']);
 const FILE_RETRY_ATTEMPTS = 3;
 const FILE_RETRY_DELAY_MS = 1000;
 

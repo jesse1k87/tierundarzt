@@ -22,7 +22,7 @@ const upload = () => {
       },
       {
         dryRun: false,
-        exclude: ['node_modules', 'package.json', '.turbo'],
+        exclude: ['node_modules', 'package.json'],
         excludeMode: 'ignore',
         forceUpload: true,
       }
