@@ -1,0 +1,40 @@
+{
+  "name": "tierundarzt",
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "scripts": {
+    "browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open",
+    "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production postcss src/static/css/tailwind.css --o _site/static/css/style.css",
+    "css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
+    "debug": "set DEBUG=* & eleventy",
+    "deploy": "node ../../scripts/deploy.js",
+    "dev:live": "npm-run-all --parallel css eleventy browsersync watch",
+    "dev": "npm-run-all --parallel css eleventy browsersync",
+    "eleventy": "eleventy --watch --serve",
+    "sort-package-json": "sort-package-json \"./package.json\"",
+    "format": "prettier --write .",
+    "watch": "node watch.js"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "cssnano": "^5.1.14",
+    "dotenv": "^16.0.3",
+    "luxon": "^1.25.0",
+    "prettier": "^2.7.1",
+    "prismjs": "^1.21.0"
+  },
+  "engines": {
+    "node": ">=16.14.0"
+  },
+  "uploadConfig": {
+    "user": "tierundarztat",
+    "host": "tieruo.ssh.transip.me",
+    "localDir": "_site"
+  }
+}

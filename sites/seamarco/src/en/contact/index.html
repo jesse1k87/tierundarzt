@@ -1,0 +1,51 @@
+---
+layout: default
+menukey: contact
+locale: en
+title: Contact
+emailjs: true
+---
+
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+  <div>
+    <h2>Contact form</h2>
+    <form id="contact-form" class="flex flex-col">
+      <input type="hidden" name="contact_number" />
+      <div>
+        <label>Name</label>
+        <input id="contact-form-name" name="name" />
+      </div>
+      <div>
+        <label>Phone-number</label>
+        <input id="contact-form-phone" name="phone" placeholder="06 123 456 789" />
+      </div>
+      <div>
+        <label>E-mailaddress</label>
+        <input id="contact-form-email" name="email" placeholder="example@example.com" />
+      </div>
+      <div>
+        <label>Message</label>
+        <textarea id="contact-form-message" name="message"></textarea>
+      </div>
+      <div class="flex-row mt-4">
+        <button id="contact-form-button" type="submit">Send</button>
+        <button id="contact-form-reset" type="reset" class="ml-4 hidden">Reset</button>
+      </div>
+      <div id="contact-form-errors"></div>
+      <div id="contact-form-status" class="hidden leading-normal">
+        Thank you for your message, we will get in contact with you as soon as possible.
+      </div>
+    </form>
+  </div>
+  <div>
+    <h2>E-mail us</h2>
+    <h3>SEAMARCO (Zeeland Institute; for students)</h3>
+    <a href="mailto:{{ settings.email }}" title="E-mail address SEAMARCO Zeeland">{{ settings.email }}</a>
+
+    <h3>Dr. R.A. Kastelein (Science and information about Deterrents)</h3>
+    <a href="mailto:{{ settings.email_kastelein }}" title="E-mail address R.A. Kastelein">{{ settings.email_kastelein
+      }}</a>
+
+    <img class="mt-12 shadow-no" src="/static/img/SEAMARCO_logo_320px.png" alt="SEAMARCO logo" />
+  </div>
+</div>

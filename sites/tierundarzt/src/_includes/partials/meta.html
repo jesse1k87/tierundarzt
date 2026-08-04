@@ -18,7 +18,8 @@
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Robots" content="All" />
+{% if isPreview %}<meta name="Robots" content="noindex,nofollow" />{% else %}<meta name="Robots" content="All" />{% endif %}
+<meta name="commit-sha" content="{{ gitsha }}" />
 
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="icon" href="/favicon.ico" />

@@ -1,5 +1,6 @@
 const yaml = require('js-yaml');
 const { DateTime } = require('luxon');
+const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const htmlmin = require('html-minifier');
 
@@ -14,6 +15,16 @@ module.exports = function (eleventyConfig) {
 
   // Merge data instead of overriding
   eleventyConfig.setDataDeepMerge(true);
+
+  eleventyConfig.addGlobalData('gitsha', require('../../scripts/gitsha'));
+
+  // Mark preview builds so templates can emit a noindex robots tag
+  eleventyConfig.addGlobalData('isPreview', () => !!process.env.PREVIEW);
+
+  // Rewrite root-relative href/src/srcset to include PATH_PREFIX so the site
+  // works when served from a subfolder (e.g. tierundarzt.at/<branch>/).
+  // Registered before the htmlmin transform so minification runs last.
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
   // human readable date
   eleventyConfig.addFilter('readableDate', (dateObj) => {
@@ -59,5 +70,6 @@ module.exports = function (eleventyConfig) {
       input: 'src',
     },
     htmlTemplateEngine: 'njk',
+    pathPrefix: process.env.PATH_PREFIX || '/',
   };
 };

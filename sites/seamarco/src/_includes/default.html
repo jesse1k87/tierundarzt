@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+  <head>
+    <title>
+      {% if settings.menu[menukey].title[locale] and page.url != '/' and page.url != '/nl/' %} {{
+      settings.menu[menukey].title[locale] }} | {{ settings.website_title }} - {{
+      settings.description[locale] }} {% else %} {{ settings.website_title }} - {{
+      settings.description[locale] }} {% endif %}
+    </title>
+    <meta
+      property="og:title"
+      content="{% if settings.menu[menukey].title[locale] and page.url != '/' and page.url != '/nl/' %}
+  {{ settings.menu[menukey].title[locale] }} | {{ settings.website_title }} - {{ settings.description[locale] }}
+{% else %}
+  {{ settings.website_title }} - {{ settings.description[locale] }}
+{% endif %}"
+    />
+
+    <meta
+      name="description"
+      content="{% if description %}{{ description }} | {{ settings.description[locale] }}{% else %}{{ settings.description[locale] }}{% endif %}"
+    />
+    <meta
+      property="og:description"
+      content="{% if description %}{{ description }} | {{ settings.description[locale] }}{% else %}{{ settings.description[locale] }}{% endif %}"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if isPreview %}<meta name="Robots" content="noindex,nofollow" />{% else %}<meta name="Robots" content="All" />{% endif %}
+    <meta name="commit-sha" content="{{ gitsha }}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico" />
+
+    {% if locale == 'en' %}
+    <link
+      rel="alternate"
+      hreflang="nl"
+      href="{{ settings.root_url }}/nl/{{ page.url | withoutLanguage }}"
+    />
+    {% else %}
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="{{ settings.root_url }}/en/{{ page.url | withoutLanguage }}"
+    />
+    {% endif %}
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="{{ settings.root_url }}/static/img/SEAMARCO_logo_320px.png"
+    />
+    <meta property="og:url" content="{{ settings.root_url }}{{ page.url }}" />
+    <link rel="canonical" href="{{ settings.root_url }}{{ page.url }}" />
+
+    {% if emailjs %} {% include "./partials/contact-form-js.html" %} {% endif %} {% include
+    "./partials/google.html" %}
+  </head>
+
+  <body>
+    {% include "./partials/navbar.html" %}
+    <div class="content-wrapper">
+      <div class="language-switch">
+        {% if locale == 'nl' %}
+        <img class="active" src="/static/img/flag_nl.svg" />
+        <a href="{{ settings.menu[menukey].url['en'] }}"><img src="/static/img/flag_en.svg" /></a>
+        {% else %}
+        <a href="{{ settings.menu[menukey].url['nl'] }}"><img src="/static/img/flag_nl.svg" /></a>
+        <img class="active" src="/static/img/flag_en.svg" />
+        {% endif %}
+      </div>
+      <div class="content">
+        <h1>{{ settings.menu[menukey].title[locale] }}</h1>
+        {{ content | safe }}
+      </div>
+    </div>
+    {% include "./partials/footer.html" %}
+  </body>
+</html>

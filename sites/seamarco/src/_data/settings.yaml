@@ -1,0 +1,49 @@
+---
+website_title: SEAMARCO
+version: 1.0.0
+description:
+  en: Applied Research for Marine Conservation
+  nl: Toegepast onderzoek voor het behoud van de zee
+root_url: https://seamarco.nl
+email: info@seamarco.nl
+email_kastelein: rk@seamarco.nl
+google_analytics: G-7Z653NR9HE
+menu:
+  about:
+    button:
+      en: About
+      nl: Over
+    title:
+      en: About SEAMARCO
+      nl: Over SEAMARCO
+    url:
+      en: /
+      nl: /nl/
+  vacancies:
+    title:
+      en: Internships & Volunteering
+      nl: Stages & vrijwilligerswerk
+    url:
+      en: /en/vacancies/
+      nl: /nl/vacatures/
+  publications:
+    title:
+      en: Publications
+      nl: Kennisverspreiding
+    url:
+      en: /en/publications/
+      nl: /nl/publicaties/
+  deterrents:
+    title:
+      en: Deterrents & Equipment
+      nl: Deterrents & Apparatuur
+    url:
+      en: /en/deterrents/
+      nl: /nl/deterrents/
+  contact:
+    title:
+      en: Contact
+      nl: Contact
+    url:
+      en: /en/contact/
+      nl: /nl/contact/

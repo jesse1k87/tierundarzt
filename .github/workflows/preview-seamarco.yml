@@ -1,0 +1,70 @@
+name: Preview seamarco
+
+on:
+  push:
+    branches-ignore: [main]
+    paths:
+      - 'sites/seamarco/**'
+      - 'scripts/**'
+      - '.github/workflows/preview-seamarco.yml'
+
+concurrency:
+  group: preview-seamarco-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  preview:
+    name: Preview seamarco
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compute slug
+        id: slug
+        env:
+          REF_NAME: ${{ github.ref_name }}
+        run: echo "slug=$(node scripts/slugify-ref.js "$REF_NAME")" >> "$GITHUB_OUTPUT"
+
+      - name: Build
+        run: npm run build --workspace=sites/seamarco
+        env:
+          PATH_PREFIX: /${{ steps.slug.outputs.slug }}/
+          PREVIEW: '1'
+
+      - name: Rewrite absolute url() references
+        run: node scripts/rewrite-prefix.js sites/seamarco/_site
+        env:
+          PATH_PREFIX: /${{ steps.slug.outputs.slug }}/
+
+      - name: Deploy
+        run: npm run deploy --workspace=sites/seamarco
+        env:
+          FTP_PASS: ${{ secrets.SEAMARCO_FTP_PASS }}
+          DEPLOY_SUBDIR: ${{ steps.slug.outputs.slug }}
+
+      - name: Preview URL
+        run: |
+          echo "### seamarco preview" >> "$GITHUB_STEP_SUMMARY"
+          echo "https://seamarco.nl/${{ steps.slug.outputs.slug }}/" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Append preview URL to PR description
+        run: node scripts/append-preview-url.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: ${{ github.ref_name }}
+          SITE: seamarco
+          PREVIEW_URL: https://seamarco.nl/${{ steps.slug.outputs.slug }}/

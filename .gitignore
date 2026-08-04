@@ -1,4 +1,2 @@
-_site
-.turbo
-node_modules
-.env
+node_modules/
+.turbo/

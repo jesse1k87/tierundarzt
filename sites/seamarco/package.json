@@ -1,0 +1,31 @@
+{
+  "name": "seamarco",
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "scripts": {
+    "browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open",
+    "build": "npm run generate-publications && cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production postcss src/static/css/tailwind.css --o _site/static/css/style.css",
+    "css": "postcss src/static/css/tailwind.css --o _site/static/css/style.css --watch",
+    "debug": "set DEBUG=* & eleventy",
+    "deploy": "node ../../scripts/deploy.js",
+    "dev": "npm-run-all --parallel css eleventy browsersync",
+    "eleventy": "eleventy --watch --serve",
+    "format": "prettier --write .",
+    "generate-publications": "node convert-publications-json-to-yaml.js",
+    "sort-package-json": "npx sort-package-json"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "engines": {
+    "node": ">=16.14.0"
+  },
+  "uploadConfig": {
+    "user": "seamarconl",
+    "host": "seamat.ssh.transip.me",
+    "localDir": "_site"
+  }
+}

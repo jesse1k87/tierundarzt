@@ -1,0 +1,36 @@
+name: Deploy tierundarzt
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sites/tierundarzt/**'
+
+concurrency:
+  group: deploy-tierundarzt-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy tierundarzt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build --workspace=sites/tierundarzt
+
+      - name: Deploy
+        run: npm run deploy --workspace=sites/tierundarzt
+        env:
+          FTP_PASS: ${{ secrets.TIERUNDARZT_FTP_PASS }}

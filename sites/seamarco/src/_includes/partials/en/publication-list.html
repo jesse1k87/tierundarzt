@@ -1,0 +1,77 @@
+<div class="flex flex-wrap gap-4 items-end mb-4">
+  <div class="flex-1 min-w-[220px]">
+    <label for="publications-search" class="block text-sm font-bold mb-1">Search</label>
+    <input
+      type="text"
+      id="publications-search"
+      placeholder="Search by title, author or publication..."
+      class="w-full border border-gray-300 rounded px-3 py-2"
+    />
+  </div>
+  <div class="min-w-[220px]">
+    <label for="publications-category" class="block text-sm font-bold mb-1">Category</label>
+    <select id="publications-category" class="w-full border border-gray-300 rounded px-3 py-2">
+      <option value="">All categories</option>
+      {% for category in publications.categories %}
+      <option value="{{ category.name }}">{{ category.name }} ({{ category | categoryPublicationCount }})</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+
+<div id="publications-count" class="light text-sm mb-2" data-template="Showing {count} of {total} publications">
+  Showing {{ publications.categories | length }} categories
+</div>
+
+<div class="overflow-x-auto">
+  <table id="publications-table" class="w-full text-sm">
+    <thead>
+      <tr class="text-left border-b-2 border-blue-100">
+        <th class="py-2 px-1 cursor-pointer select-none whitespace-nowrap" data-sort="year">Year</th>
+        <th class="py-2 px-1 cursor-pointer select-none" data-sort="title">Title</th>
+        <th class="py-2 px-1 cursor-pointer select-none" data-sort="authors">Authors</th>
+        <th class="py-2 px-1">Published in</th>
+        <th class="py-2 px-1 cursor-pointer select-none" data-sort="category">Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for category in publications.categories %} {% for subcategory in category.subcategories
+      %} {% for item in subcategory.items %}
+      <tr
+        data-year="{{ item.year }}"
+        data-title="{{ item.title }}"
+        data-authors="{{ item.authors | join(', ') }}"
+        data-category="{{ category.name }}"
+        data-search="{{ (item.title + ' ' + (item.authors | join(' ')) + ' ' + item.location + ' ' + category.name + ' ' + (subcategory.name or '')) | lower }}"
+      >
+        <td class="py-2 px-1 whitespace-nowrap">{{ item.year }}</td>
+        <td class="py-2 px-1">
+          "{{ item.title }}"
+          {% if item.url %}
+          <a href="{{ item.url }}" target="_blank" class="text-blue-400 hover:underline text-xs"
+            >[URL]</a
+          >
+          {% endif %} {% if item.DOI %}
+          <a
+            href="https://doi.org/{{ item.DOI }}"
+            target="_blank"
+            class="text-blue-400 hover:underline text-xs"
+            >[DOI]</a
+          >
+          {% endif %}
+        </td>
+        <td class="py-2 px-1">{{ item.authors | join(', ') }}</td>
+        <td class="py-2 px-1">{{ item.location }}</td>
+        <td class="py-2 px-1 whitespace-nowrap">
+          {{ category.name }}{% if subcategory.name %} / {{ subcategory.name }}{% endif %}
+        </td>
+      </tr>
+      {% endfor %} {% endfor %} {% endfor %}
+      <tr id="publications-no-results" class="hidden">
+        <td colspan="5" class="py-4 text-center light">No publications match your search.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="/static/js/publications-table.js" defer></script>

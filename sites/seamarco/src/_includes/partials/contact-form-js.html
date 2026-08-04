@@ -1,0 +1,104 @@
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+></script>
+<script type="text/javascript">
+  (function () {
+    emailjs.init('pA-mB9hnm8pIqchf_');
+  })();
+</script>
+<script type="text/javascript">
+  window.onload = function () {
+    const form = document.getElementById('contact-form');
+    if (form == null) {
+      return;
+    }
+
+    const name = document.getElementById('contact-form-name');
+    const phone = document.getElementById('contact-form-phone');
+    const email = document.getElementById('contact-form-email');
+    const message = document.getElementById('contact-form-message');
+    const reset = document.getElementById('contact-form-reset');
+
+    function setErrors(errors) {
+      var errorContainer = document.getElementById('contact-form-errors');
+      errorContainer.innerHTML = '';
+      for (var i = 0; i < errors.length; i++) {
+        var messageElem = document.createElement('div');
+        messageElem.innerHTML = errors[i];
+        errorContainer.appendChild(messageElem);
+      }
+    }
+
+    function resetForm() {
+      setErrors([]);
+      phone.classList.remove('invalid');
+      email.classList.remove('invalid');
+      message.classList.remove('invalid');
+      reset.classList.add('hidden');
+    }
+
+    function validate() {
+      console.log('validate');
+      var errors = [];
+
+      phone.classList.toggle('invalid', phone.value == '' && email.value == '');
+      email.classList.toggle('invalid', phone.value == '' && email.value == '');
+      message.classList.toggle('invalid', message.value == '');
+      reset.classList.remove('hidden');
+
+      if (message.value == '') {
+        errors.push('Please enter a message.');
+      }
+
+      if (phone.value == '' && email.value == '') {
+        errors.push('Please enter a phone-number and/or an e-mailaddress.');
+      }
+
+      setErrors(errors);
+      return errors.length == 0;
+    }
+
+    if (name) {
+      name.addEventListener('input', validate);
+    }
+    if (phone) {
+      phone.addEventListener('input', validate);
+    }
+    if (email) {
+      email.addEventListener('input', validate);
+    }
+    if (message) {
+      message.addEventListener('input', validate);
+    }
+    if (reset) {
+      reset.addEventListener('click', resetForm);
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (validate()) {
+        const button = document.getElementById('contact-form-button');
+        const status = document.getElementById('contact-form-status');
+        button.disabled = true;
+        button.innerHTML = 'Sending...';
+
+        this.contact_number.value = (Math.random() * 100000) | 0;
+        emailjs.sendForm('service_v30rjth', 'template_81dkwzf', this).then(
+          function () {
+            status.classList.remove('hidden');
+            button.disabled = false;
+            button.innerHTML = 'Send';
+          },
+          function (error) {
+            console.log('error', error);
+            setErrors([error.status + ': ' + error.text]);
+            status.classList.remove('hidden');
+            button.disabled = false;
+            button.innerHTML = 'Send';
+          }
+        );
+      }
+    });
+  };
+</script>

@@ -1,0 +1,50 @@
+name: Preview cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+concurrency:
+  group: preview-cleanup-${{ github.head_ref }}
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    name: Remove preview (${{ matrix.site }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - site: seamarco
+            host: seamat.ssh.transip.me
+            user: seamarconl
+            secret_name: SEAMARCO_FTP_PASS
+          - site: tierundarzt
+            host: tieruo.ssh.transip.me
+            user: tierundarztat
+            secret_name: TIERUNDARZT_FTP_PASS
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compute slug
+        id: slug
+        env:
+          REF_NAME: ${{ github.head_ref }}
+        run: echo "slug=$(node scripts/slugify-ref.js "$REF_NAME")" >> "$GITHUB_OUTPUT"
+
+      - name: Remove preview folder
+        run: node scripts/sftp-cleanup.js
+        env:
+          CLEANUP_HOST: ${{ matrix.host }}
+          CLEANUP_USER: ${{ matrix.user }}
+          FTP_PASS: ${{ secrets[matrix.secret_name] }}
+          DEPLOY_SUBDIR: ${{ steps.slug.outputs.slug }}
