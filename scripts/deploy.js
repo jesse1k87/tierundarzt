@@ -28,7 +28,7 @@ const run = async (config) => {
     host: config.host,
     username: config.user || config.host,
     password: process.env.FTP_PASS,
-    localDir: path.join(process.cwd(), config.localDir || '_site'),
+    localDir: path.join(process.cwd(), config.localDir || 'docs'),
     remoteDir,
   };
 

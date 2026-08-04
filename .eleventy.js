@@ -38,14 +38,14 @@ module.exports = function (eleventyConfig) {
   // You may remove this if you can use JSON
   eleventyConfig.addDataExtension('yaml', (contents) => yaml.load(contents));
 
-  // Copy Image Folder to /_site
+  // Copy Image Folder to /docs
   eleventyConfig.addPassthroughCopy('./src/static/css');
   eleventyConfig.addPassthroughCopy('./src/static/files');
   eleventyConfig.addPassthroughCopy('./src/static/fonts');
   eleventyConfig.addPassthroughCopy('./src/static/img');
   eleventyConfig.addPassthroughCopy('./src/static/js');
 
-  // Copy favicon to route of /_site
+  // Copy favicon to route of /docs
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
 
   // Minify HTML
@@ -68,6 +68,7 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: 'src',
+      output: 'docs',
     },
     htmlTemplateEngine: 'njk',
     pathPrefix: process.env.PATH_PREFIX || '/',
