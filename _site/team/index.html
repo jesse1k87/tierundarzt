@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><title>Tier &amp; Arzt - Tierarztpraxis Innsbruck</title><meta property="og:title" content="Tier &amp; Arzt - Tierarztpraxis Innsbruck"><meta name="description" content="Tierpraxis in Innsbruck, Tirol"><meta property="og:description" content="Tierpraxis in Innsbruck, Tirol"><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="Robots" content="All"><meta name="commit-sha" content="32841f37e90676621c08a7bb88caa2437273d3c4"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico"><link rel="alternate" hreflang="en" href="https://tierundarzt.at"><link rel="alternate" hreflang="nl" href="https://tierundarzt.at/nl"><meta property="og:type" content="website"><meta property="og:url" content="https://tierundarzt.at//team/"><link rel="canonical" href="https://tierundarzt.at//team/"><link rel="stylesheet" type="text/css" href="/static/css/style.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script><script type="text/javascript">(function () {
+    emailjs.init('user_VVLGXdDfeBed4Ohtd7UoL');
+  })();</script><script type="text/javascript">window.onload = function () {
+    const form = document.getElementById('contact-form');
+    if (form == null) {
+      return;
+    }
+    const name = document.getElementById('contact-form-name');
+    const phone = document.getElementById('contact-form-phone');
+    const email = document.getElementById('contact-form-email');
+    const message = document.getElementById('contact-form-message');
+    const reset = document.getElementById('contact-form-reset');
+
+    function setErrors(errors) {
+      var errorContainer = document.getElementById('contact-form-errors');
+      errorContainer.innerHTML = '';
+      for (var i = 0; i < errors.length; i++) {
+        var messageElem = document.createElement('div');
+        messageElem.innerHTML = errors[i];
+        errorContainer.appendChild(messageElem);
+      }
+    }
+
+    function resetForm() {
+      setErrors([]);
+      phone.classList.remove('invalid');
+      email.classList.remove('invalid');
+      message.classList.remove('invalid');
+      reset.classList.add('hidden');
+    }
+
+    function validate() {
+      var errors = [];
+
+      phone.classList.toggle('invalid', phone.value == '' && email.value == '');
+      email.classList.toggle('invalid', phone.value == '' && email.value == '');
+      message.classList.toggle('invalid', message.value == '');
+      reset.classList.remove('hidden');
+
+      if (message.value == '') {
+        errors.push('Bitte Nachricht hinzüfugen.');
+      }
+
+      if (phone.value == '' && email.value == '') {
+        errors.push('Bitte Telefon oder E-Mail-Adresse hinzüfugen.');
+      }
+
+      setErrors(errors);
+      return errors.length == 0;
+    }
+
+    if (name) {
+      name.addEventListener('input', validate);
+    }
+    if (phone) {
+      phone.addEventListener('input', validate);
+    }
+    if (email) {
+      email.addEventListener('input', validate);
+    }
+    if (message) {
+      message.addEventListener('input', validate);
+    }
+    if (reset) {
+      reset.addEventListener('click', resetForm);
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (validate()) {
+        const button = document.getElementById('contact-form-button');
+        const status = document.getElementById('contact-form-status');
+        button.disabled = true;
+        button.innerHTML = 'Sending...';
+
+        this.contact_number.value = (Math.random() * 100000) | 0;
+        emailjs.sendForm('service_xyn5j9e', 'template_eyi8f4h', this).then(
+          function () {
+            status.classList.remove('hidden');
+            button.disabled = false;
+            button.innerHTML = 'Senden';
+          },
+          function (error) {
+            console.log('error', error);
+            setErrors([error.status + ': ' + error.text]);
+            status.classList.remove('hidden');
+            button.disabled = false;
+            button.innerHTML = 'Senden';
+          }
+        );
+      }
+    });
+  };</script><meta name="google-site-verification" content="UiLTNRx8pUX4WZtqgqAOEH2nRRKo0dtAsUjfvx9Qc5o"><script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1D2GT6GH2"></script><script>window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-Q1D2GT6GH2');</script></head><body><section class="bg-pine"><nav class="px-6 py-4 md:p-6 lg:py-6 xl:py-8 flex flex-nowrap flex-wrap justify-between"><div class="flex flex-col justify-center self-start"><a class="logo flex justify-center items-end h-12 md:h-24 lg:h-32 w-12 md:w-24 lg:w-32" alt="Logo of Tier & Arzt" href="/"></a><div class="text-white text-xs tracking-widest hidden lg:flex self-center">TIERARZTPRAXIS</div></div><input type="checkbox" class="check hidden" id="checked"> <label class="menu-toggle md:hidden lg:hidden order-3 justify-between" for="checked"><span class="bar top"></span> <span class="bar middle"></span> <span class="bar bottom"></span></label><div id="menu" class="hidden md:flex items-center flex-grow md:flex md:w-auto"><ul class="justify-end flex-1 md:pt-0 md:flex"><li class="text-center"><a class="inline-block p-6" href="/"><span class="button text-white">Über uns</span></a></li><li class="text-center"><a class="inline-block p-6" href="/medizin/"><span class="button text-white">Medizin</span></a></li><li class="text-center"><a class="inline-block p-6" href="/kontakt/"><span class="button text-white">Kontakt</span></a></li><li class="text-center"><a class="inline-block p-6" href="https://petleo.app/?iframe=true&amp;group=0&amp;lang=de&amp;redirect_url=/clinic/32286151e370e832b268af43e70786b2171d1b2b9ecc51f3979c59e18f40ca43/branch/1/book-appointment/"><span class="button text-white">Termin buchen</span></a></li></ul></div></nav></section><div class="content"><section style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.33)),
+      url(/static/img/photos/hug-dog.jpg);"><h1 class="text-white">Team</h1></section><section><h2>Dr. Jennifer Covi-Dijkhuizen</h2><div>Intro</div></section><section><h3>aksldkalsdk</h3><div><div class="flex flex-row"><div style="min-width: 12%">09/2019 - heute</div><div><div>Tierärztin, Tierplus, Innsbruck, AT</div></div></div><div class="flex flex-row"><div style="min-width: 12%">10/2018 - 8/2019</div><div><div>Tierärztin, Tierarztpraxis Uderns, Uderns, AT</div></div></div><div class="flex flex-row"><div style="min-width: 12%">12/2016</div><div><div>Verteidigung Dissertation mit magna cum laudae, Leipzig, D</div></div></div><div class="flex flex-row"><div style="min-width: 12%">2/2016 - 8/2018</div><div><div>Tierärztin, Tierarztpraxis Moerstraten, NL</div></div></div><div class="flex flex-row"><div style="min-width: 12%">9/2015 - 2/2016</div><div><div>Tierärztin, Tierarztpraxis Yerseke, NL</div></div></div><div class="flex flex-row"><div style="min-width: 12%">5/2015 - 4/2016</div><div><div>Wissenschaftliche Beraterin, Whale and Dolphin Conservation, D</div></div></div><div class="flex flex-row"><div style="min-width: 12%">2/2014 - 8/2015</div><div><div>Forschungsassistentin und Co-Managerin, SEAMARCO, NL</div></div></div><div class="flex flex-row"><div style="min-width: 12%">9/2013 - 12/2013</div><div><div>Tierärztin, Dr. Schöpf-Grey, Hall i.T., AT</div></div></div><div class="flex flex-row"><div style="min-width: 12%">3/2011 - 8/2013</div><div><div>Doktorandin in der Handplastischen Chirurgie, Erlangen-Nürnberg, D</div></div></div><div class="flex flex-row"><div style="min-width: 12%">2/2011</div><div><div>Magistra veterinaria medicinae, Veterinärmedizinische Universität Wien</div></div></div></div></section><section><h2>Martina Hagele</h2><div>...</div></section><section class="pt-6 pb-0 leading-relaxed"><div class="flex flex-col xl:flex-row xl:justify-between xl:items-start"><div class="my-1"><div><span class="font-bold">Tier &amp; Arzt</span> — Tierarztpraxis</div><div>Dr. Jennifer Covi-Dijkhuizen (GPCert Ophthal)</div></div><div class="my-1"><address>0676 526 04 38</address><address><a href="mailto:praxis@tierundarzt.at">praxis@tierundarzt.at</a></address></div><div class="my-1"><div>Eduard-Bodem-Gasse 3</div><div>6020 Innsbruck, Österreich</div></div></div></section><section class="pt-6 pb-0 leading-relaxed"><div class="flex flex-col mt-8 items-center"><a href="/dsgvo">DSGVO</a></div></section></div><div class="mountains"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,96L120,80C240,64,480,32,720,26.7C960,21,1200,43,1320,53.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,96L60,112C120,128,240,160,360,170.7C480,181,600,171,720,144C840,117,960,75,1080,53.3C1200,32,1320,32,1380,32L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,288L60,266.7C120,245,240,203,360,165.3C480,128,600,96,720,101.3C840,107,960,149,1080,160C1200,171,1320,149,1380,138.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,256L60,261.3C120,267,240,277,360,250.7C480,224,600,160,720,133.3C840,107,960,117,1080,133.3C1200,149,1320,171,1380,181.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg></div></body></html>
