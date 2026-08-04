@@ -1,0 +1,37 @@
+@import './font-futura.css';
+
+body {
+  margin: 0em;
+  padding: 0em;
+  font-weight: bold;
+  font-family: 'Futura Std';
+  line-height: 1.8em;
+  text-align: center;
+}
+body * {
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 4em;
+}
+.logo-text {
+  font-size: 3em;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.logo > svg,
+.logo > div {
+  width: 48em;
+}
+.logo > svg {
+  height: 48em;
+}

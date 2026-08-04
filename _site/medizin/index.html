@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><title>Tier &amp; Arzt - Tierarztpraxis Innsbruck</title><meta property="og:title" content="Tier &amp; Arzt - Tierarztpraxis Innsbruck"><meta name="description" content="Tierpraxis in Innsbruck, Tirol"><meta property="og:description" content="Tierpraxis in Innsbruck, Tirol"><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="Robots" content="All"><meta name="commit-sha" content="32841f37e90676621c08a7bb88caa2437273d3c4"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico"><link rel="alternate" hreflang="en" href="https://tierundarzt.at"><link rel="alternate" hreflang="nl" href="https://tierundarzt.at/nl"><meta property="og:type" content="website"><meta property="og:url" content="https://tierundarzt.at//medizin/"><link rel="canonical" href="https://tierundarzt.at//medizin/"><link rel="stylesheet" type="text/css" href="/static/css/style.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script><script type="text/javascript">(function () {
+    emailjs.init('user_VVLGXdDfeBed4Ohtd7UoL');
+  })();</script><script type="text/javascript">window.onload = function () {
+    const form = document.getElementById('contact-form');
+    if (form == null) {
+      return;
+    }
+    const name = document.getElementById('contact-form-name');
+    const phone = document.getElementById('contact-form-phone');
+    const email = document.getElementById('contact-form-email');
+    const message = document.getElementById('contact-form-message');
+    const reset = document.getElementById('contact-form-reset');
+
+    function setErrors(errors) {
+      var errorContainer = document.getElementById('contact-form-errors');
+      errorContainer.innerHTML = '';
+      for (var i = 0; i < errors.length; i++) {
+        var messageElem = document.createElement('div');
+        messageElem.innerHTML = errors[i];
+        errorContainer.appendChild(messageElem);
+      }
+    }
+
+    function resetForm() {
+      setErrors([]);
+      phone.classList.remove('invalid');
+      email.classList.remove('invalid');
+      message.classList.remove('invalid');
+      reset.classList.add('hidden');
+    }
+
+    function validate() {
+      var errors = [];
+
+      phone.classList.toggle('invalid', phone.value == '' && email.value == '');
+      email.classList.toggle('invalid', phone.value == '' && email.value == '');
+      message.classList.toggle('invalid', message.value == '');
+      reset.classList.remove('hidden');
+
+      if (message.value == '') {
+        errors.push('Bitte Nachricht hinzüfugen.');
+      }
+
+      if (phone.value == '' && email.value == '') {
+        errors.push('Bitte Telefon oder E-Mail-Adresse hinzüfugen.');
+      }
+
+      setErrors(errors);
+      return errors.length == 0;
+    }
+
+    if (name) {
+      name.addEventListener('input', validate);
+    }
+    if (phone) {
+      phone.addEventListener('input', validate);
+    }
+    if (email) {
+      email.addEventListener('input', validate);
+    }
+    if (message) {
+      message.addEventListener('input', validate);
+    }
+    if (reset) {
+      reset.addEventListener('click', resetForm);
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (validate()) {
+        const button = document.getElementById('contact-form-button');
+        const status = document.getElementById('contact-form-status');
+        button.disabled = true;
+        button.innerHTML = 'Sending...';
+
+        this.contact_number.value = (Math.random() * 100000) | 0;
+        emailjs.sendForm('service_xyn5j9e', 'template_eyi8f4h', this).then(
+          function () {
+            status.classList.remove('hidden');
+            button.disabled = false;
+            button.innerHTML = 'Senden';
+          },
+          function (error) {
+            console.log('error', error);
+            setErrors([error.status + ': ' + error.text]);
+            status.classList.remove('hidden');
+            button.disabled = false;
+            button.innerHTML = 'Senden';
+          }
+        );
+      }
+    });
+  };</script><meta name="google-site-verification" content="UiLTNRx8pUX4WZtqgqAOEH2nRRKo0dtAsUjfvx9Qc5o"><script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1D2GT6GH2"></script><script>window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-Q1D2GT6GH2');</script></head><body><section class="bg-pine"><nav class="px-6 py-4 md:p-6 lg:py-6 xl:py-8 flex flex-nowrap flex-wrap justify-between"><div class="flex flex-col justify-center self-start"><a class="logo flex justify-center items-end h-12 md:h-24 lg:h-32 w-12 md:w-24 lg:w-32" alt="Logo of Tier & Arzt" href="/"></a><div class="text-white text-xs tracking-widest hidden lg:flex self-center">TIERARZTPRAXIS</div></div><input type="checkbox" class="check hidden" id="checked"> <label class="menu-toggle md:hidden lg:hidden order-3 justify-between" for="checked"><span class="bar top"></span> <span class="bar middle"></span> <span class="bar bottom"></span></label><div id="menu" class="hidden md:flex items-center flex-grow md:flex md:w-auto"><ul class="justify-end flex-1 md:pt-0 md:flex"><li class="text-center"><a class="inline-block p-6" href="/"><span class="button text-white">Über uns</span></a></li><li class="text-center"><a class="inline-block p-6" href="/medizin/"><span class="button text-white border-b-2 border-white">Medizin</span></a></li><li class="text-center"><a class="inline-block p-6" href="/kontakt/"><span class="button text-white">Kontakt</span></a></li><li class="text-center"><a class="inline-block p-6" href="https://petleo.app/?iframe=true&amp;group=0&amp;lang=de&amp;redirect_url=/clinic/32286151e370e832b268af43e70786b2171d1b2b9ecc51f3979c59e18f40ca43/branch/1/book-appointment/"><span class="button text-white">Termin buchen</span></a></li></ul></div></nav></section><div class="content"><section class="py-24 h-64" style="background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)),
+      url(/static/img/photos/mouse.jpg);"><h1 class="text-white">Spezialisierung &<br>Zusammenarbeit</h1></section><section class="py-12 lg:py-16"><h2 class="mb-8">Unser medizinischer Fokus.</h2><div class="py-0 xl:grid xl:gap-12 xl:grid-cols-2"><div><div class="bg-image h-64" style="background-image: url(/static/img/photos/husky.jpg)"></div><h3 class="mt-6">Augenheilkunde</h3><p>Durch die Fachausbildung von Improve International können wir uns besonderen und schwierigen Augenkrankheiten widmen, die ebenfalls ein spezielles Untersuchungsinstrumentarium und Erfahrung erfordert.</p></div><div class="mt-16 xl:mt-0"><div class="bg-image h-64 bg-center" style="background-image: url(/static/img/photos/rontgen.jpeg)"></div><h3 class="mt-6">Radiologie und Ultraschall</h3><p>Die Radiologie ermöglicht uns eine nicht-invasive und schmerzfreie Untersuchungsmethode unserer Patienten und eine damit einhergehende optimale internistische Diagnose und Therapie unserer Patienten.</p></div><div class="mt-16 xl:mt-0"><div class="bg-image h-64" style="background-image: url(/static/img/photos/dog-drinking.jpg)"></div><h3 class="mt-6">Innere Medizin</h3><p>Anhand einer ausführlichen klinischen Untersuchung und der Möglichkeit einer sofortigen Blutuntersuchung im Hauslabor werden komplexe internistische Krankheiten frühzeitig diagnostiziert und nach den neuesten "state of the art" -Behandlungsmethoden therapiert. Die Tiere werden engmaschig kontrolliert, wenn nötig stationär aufgenommen, bis die Medikation gut eingestellt ist und sie entlassen werden können</p></div><div class="mt-16 xl:mt-0"><div class="bg-image h-64" style="background-image: url(/static/img/photos/happy-dog.jpg)"></div><h3 class="mt-6">Onkologie</h3><p>Einer der häufigsten Erkrankungen bei Tier und Mensch sind Tumore. Wir arbeiten eng mit einem onkologischen Konsiliartierarzt zusammen, damit wir eine präzise Diagnose und maßgeschneiderte Behandlung anbieten können.</p></div><div class="mt-16 xl:mt-0"><div class="bg-image h-64" style="background-image: url(/static/img/photos/chirurgie.jpg)"></div><h3 class="mt-6">Chirurgie</h3><p>Die Chirurgie ist das Teilgebiet der Medizin, das sich mit der operativen Behandlung von Krankheiten und Verletzungen beschäftigt. Durch hochwertige Fortbildungen werden bei uns auch komplizierte Fälle behandelt.</p></div><div class="mt-16 xl:mt-0"><div class="bg-image h-64" style="background-image: url(/static/img/photos/cat-wave.jpg)"></div><h3 class="mt-6">Orthopädie</h3><p>Wir arbeiten mit erfahrenen Kollegen zusammen, damit auch schwierige Knochenbrüche oder Gelenksprobleme chirurgisch versorgt werden können.</p></div></div></section><section><h2 class="mb-8">Unsere Philosophie</h2><h3>01 - Hochwertige medizinische Versorgung</h3><p class="w-full xl:w-2/3">Wir bieten den höchsten Standard von Diagnosen, Technologie, Therapien und medizinischem Handwerk. Wir wollen moderne Medizin bereitstellen, die auf unsere Kompetenz und langjähriger internationaler Erfahrung basiert.</p><h3>02 - Zusammenarbeit mit Spezialisten</h3><p class="w-full xl:w-2/3">Die Zusammenarbeit mit weiteren Spezialisten aus anderen Fachrichtungen (Onkologie, Chirurgie, etc.) ist uns ein großes Anliegen, damit wir unseren Patienten die beste Behandlung von einem großen Leistungsspektrum garantieren können.</p><h3>03 - Stressfrei und mehr Zeit</h3><p class="w-full xl:w-2/3">Wir haben die Warte- und Behandlungsräume so entwickelt, damit sie eine stressfreie und beruhigende Umgebung für Tier und Mensch sind. Mittels Terminvereinbarungen können wir uns ausreichend Zeit für unsere Patienten nehmen, um ausführlich auf die Tiere eingehen zu können.</p><h3>04 - Neueste Behandlungsmethoden</h3><p class="w-full xl:w-2/3">Wir bieten unseren Kunden &#39;state of the art&#39; Untersuchungen und Behandlungen an. Um auf der Höhe der Zeit und stets im Einklang mit dem aktuellen Stand der Wissenschaft (z.B. Impfung nur so oft wie medizinisch sinnvoll) zu bleiben, sind regelmäßige Fortbildungen unerlässlich.</p><h3>05 - Vorbeugend und Nachhaltig</h3><p class="w-full xl:w-2/3">Mittels vorbeugender Gesundenuntersuchungen können wir Krankheiten frühzeitig erkennen und behandeln. Die Lebenserwartung der Patienten wird dadurch deutlich verlängert, die Tiere haben eine höhere Lebensqualität.</p><h3>06 - Spezielle Bedürfnisse</h3><p class="w-full xl:w-2/3">Wir nehmen Tiere mit besonderen Bedürfnissen stationär auf und versorgen sie medizinisch. Außerdem bieten wir spezielle Beratungen in Diätetik und Verhaltenskunde an.</p></section><section class="pt-6 pb-0 leading-relaxed"><div class="flex flex-col xl:flex-row xl:justify-between xl:items-start"><div class="my-1"><div><span class="font-bold">Tier &amp; Arzt</span> — Tierarztpraxis</div><div>Dr. Jennifer Covi-Dijkhuizen (GPCert Ophthal)</div></div><div class="my-1"><address>0676 526 04 38</address><address><a href="mailto:praxis@tierundarzt.at">praxis@tierundarzt.at</a></address></div><div class="my-1"><div>Eduard-Bodem-Gasse 3</div><div>6020 Innsbruck, Österreich</div></div></div></section><section class="pt-6 pb-0 leading-relaxed"><div class="flex flex-col mt-8 items-center"><a href="/dsgvo">DSGVO</a></div></section></div><div class="mountains"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,96L120,80C240,64,480,32,720,26.7C960,21,1200,43,1320,53.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,96L60,112C120,128,240,160,360,170.7C480,181,600,171,720,144C840,117,960,75,1080,53.3C1200,32,1320,32,1380,32L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,288L60,266.7C120,245,240,203,360,165.3C480,128,600,96,720,101.3C840,107,960,149,1080,160C1200,171,1320,149,1380,138.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,256L60,261.3C120,267,240,277,360,250.7C480,224,600,160,720,133.3C840,107,960,117,1080,133.3C1200,149,1320,171,1380,181.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg></div></body></html>

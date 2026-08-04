@@ -1,0 +1,105 @@
+@import './font-futura.css';
+
+body {
+  margin: 0em;
+  padding: 2em;
+  font-weight: 300;
+  font-size: 16px;
+  font-family: 'Futura Std';
+  line-height: 1.8em;
+}
+body * {
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+}
+.bold {
+  font-weight: bold;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.4em;
+}
+
+mtd,
+.sentence {
+  padding: 1em 0;
+}
+
+section {
+  margin-bottom: 1em;
+}
+section:last-of-type {
+  margin-bottom: 0em;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.top > * {
+  flex: 1;
+}
+.title {
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.logo > svg,
+.logo > div {
+  width: 8em;
+}
+.logo > svg {
+  height: 8em;
+}
+.adresse {
+  display: flex;
+  justify-content: right;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 10px;
+}
+td {
+  padding: 0.25em 2em 0.25em 0em;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+}
+td.border {
+  border-bottom: 1px solid black;
+}
+
+td:last-child {
+  padding-right: 0px;
+}
+
+.option {
+  display: flex;
+  flex-direction: row;
+}
+.square {
+  width: 1em;
+  height: 1em;
+  margin-top: 0.35em;
+  margin-right: 1em;
+  border: 1px solid black;
+}

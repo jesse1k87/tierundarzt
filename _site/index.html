@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><title>Tier &amp; Arzt - Tierarztpraxis Innsbruck</title><meta property="og:title" content="Tier &amp; Arzt - Tierarztpraxis Innsbruck"><meta name="description" content="Tierpraxis in Innsbruck, Tirol"><meta property="og:description" content="Tierpraxis in Innsbruck, Tirol"><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="Robots" content="All"><meta name="commit-sha" content="32841f37e90676621c08a7bb88caa2437273d3c4"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" href="/favicon.ico"><link rel="alternate" hreflang="en" href="https://tierundarzt.at"><link rel="alternate" hreflang="nl" href="https://tierundarzt.at/nl"><meta property="og:type" content="website"><meta property="og:url" content="https://tierundarzt.at/index"><link rel="canonical" href="https://tierundarzt.at/index"><link rel="stylesheet" type="text/css" href="/static/css/style.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script><script type="text/javascript">(function () {
+    emailjs.init('user_VVLGXdDfeBed4Ohtd7UoL');
+  })();</script><script type="text/javascript">window.onload = function () {
+    const form = document.getElementById('contact-form');
+    if (form == null) {
+      return;
+    }
+    const name = document.getElementById('contact-form-name');
+    const phone = document.getElementById('contact-form-phone');
+    const email = document.getElementById('contact-form-email');
+    const message = document.getElementById('contact-form-message');
+    const reset = document.getElementById('contact-form-reset');
+
+    function setErrors(errors) {
+      var errorContainer = document.getElementById('contact-form-errors');
+      errorContainer.innerHTML = '';
+      for (var i = 0; i < errors.length; i++) {
+        var messageElem = document.createElement('div');
+        messageElem.innerHTML = errors[i];
+        errorContainer.appendChild(messageElem);
+      }
+    }
+
+    function resetForm() {
+      setErrors([]);
+      phone.classList.remove('invalid');
+      email.classList.remove('invalid');
+      message.classList.remove('invalid');
+      reset.classList.add('hidden');
+    }
+
+    function validate() {
+      var errors = [];
+
+      phone.classList.toggle('invalid', phone.value == '' && email.value == '');
+      email.classList.toggle('invalid', phone.value == '' && email.value == '');
+      message.classList.toggle('invalid', message.value == '');
+      reset.classList.remove('hidden');
+
+      if (message.value == '') {
+        errors.push('Bitte Nachricht hinzüfugen.');
+      }
+
+      if (phone.value == '' && email.value == '') {
+        errors.push('Bitte Telefon oder E-Mail-Adresse hinzüfugen.');
+      }
+
+      setErrors(errors);
+      return errors.length == 0;
+    }
+
+    if (name) {
+      name.addEventListener('input', validate);
+    }
+    if (phone) {
+      phone.addEventListener('input', validate);
+    }
+    if (email) {
+      email.addEventListener('input', validate);
+    }
+    if (message) {
+      message.addEventListener('input', validate);
+    }
+    if (reset) {
+      reset.addEventListener('click', resetForm);
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (validate()) {
+        const button = document.getElementById('contact-form-button');
+        const status = document.getElementById('contact-form-status');
+        button.disabled = true;
+        button.innerHTML = 'Sending...';
+
+        this.contact_number.value = (Math.random() * 100000) | 0;
+        emailjs.sendForm('service_xyn5j9e', 'template_eyi8f4h', this).then(
+          function () {
+            status.classList.remove('hidden');
+            button.disabled = false;
+            button.innerHTML = 'Senden';
+          },
+          function (error) {
+            console.log('error', error);
+            setErrors([error.status + ': ' + error.text]);
+            status.classList.remove('hidden');
+            button.disabled = false;
+            button.innerHTML = 'Senden';
+          }
+        );
+      }
+    });
+  };</script><meta name="google-site-verification" content="UiLTNRx8pUX4WZtqgqAOEH2nRRKo0dtAsUjfvx9Qc5o"><script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1D2GT6GH2"></script><script>window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-Q1D2GT6GH2');</script></head><body><section class="bg-pine"><nav class="px-6 py-4 md:p-6 lg:py-6 xl:py-8 flex flex-nowrap flex-wrap justify-between"><div class="flex flex-col justify-center self-start"><a class="logo flex justify-center items-end h-12 md:h-24 lg:h-32 w-12 md:w-24 lg:w-32" alt="Logo of Tier & Arzt" href="/"></a><div class="text-white text-xs tracking-widest hidden lg:flex self-center">TIERARZTPRAXIS</div></div><input type="checkbox" class="check hidden" id="checked"> <label class="menu-toggle md:hidden lg:hidden order-3 justify-between" for="checked"><span class="bar top"></span> <span class="bar middle"></span> <span class="bar bottom"></span></label><div id="menu" class="hidden md:flex items-center flex-grow md:flex md:w-auto"><ul class="justify-end flex-1 md:pt-0 md:flex"><li class="text-center"><a class="inline-block p-6" href="/"><span class="button text-white border-b-2 border-white">Über uns</span></a></li><li class="text-center"><a class="inline-block p-6" href="/medizin/"><span class="button text-white">Medizin</span></a></li><li class="text-center"><a class="inline-block p-6" href="/kontakt/"><span class="button text-white">Kontakt</span></a></li><li class="text-center"><a class="inline-block p-6" href="https://petleo.app/?iframe=true&amp;group=0&amp;lang=de&amp;redirect_url=/clinic/32286151e370e832b268af43e70786b2171d1b2b9ecc51f3979c59e18f40ca43/branch/1/book-appointment/"><span class="button text-white">Termin buchen</span></a></li></ul></div></nav></section><div class="content"><section class="text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.55)),
+      url(/static/img/photos/max2.jpeg);"><h2>Liebevolle Pflege, Moderne Medizin, Ihre Familientierärztin.</h2><p>Wir freuen uns von Ihnen zu hören.</p><div class="flex justify-center"><a href="https://petleo.app/?iframe=true&amp;group=0&amp;lang=de&amp;redirect_url=/clinic/32286151e370e832b268af43e70786b2171d1b2b9ecc51f3979c59e18f40ca43/branch/1/book-appointment/" class="button sage" target="_blank">Buch ein Termin online</a></div><div class="mt-4">Oder rufen Sie uns an:<br><span class="font-bold">0676 526 04 38</span><p>Termin nur nach Vereinbarung.</p></div></section><section class="bg-sage-200"><div class="lg:grid lg:gap-12 lg:grid-cols-2"><div><h2>Persönliche Betreuung, Zeit und Aufmerksamkeit</h2><p>Für Besitzer und Tier, welche über übliche Behandlungsmethoden hinaus persönliche Betreuung, Zeit und Aufmerksamkeit für herausfordernde Fälle suchen.</p><h2>Fokus auf eine holistische Betreuung für Besitzer und Tier.</h2><p>Von den ersten Impfungen bis hin zu einem kompletten Gesundheitskonzept.</p></div><div class="bg-image h-72" style="background-image: url(/static/img/photos/hug-dog.jpg)"></div></div></section><section><div class="lg:grid lg:gap-12 lg:grid-cols-2"><div><p>Unsere Kleintierarztpraxis in Innsbruck bietet alles was unsere pelzigen und schuppigen Lebensgefährten begehren, um das gesunde und vitale Leben führen zu können, welches Herrchen und Frauchen das tägliche Lächeln ins Gesicht zaubert.</p><p>Unser breites Leistungsangebot gepaart mit unserer langjährigen Erfahrung als kompetente Tierärztinnen bietet das perfekte Umfeld für Hund, Katze, Schlange und Co. Ein verzweigtes Expertennetzwerk unterstützt unsere tägliche Arbeit auch in besonderen Fällen.</p><p>Für uns ist die Berufung „Tierarzt“ eine Lebensaufgabe mit dem täglichen Ziel Ihren Liebsten die bestmögliche Behandlung für ein langlebiges und schönes Vierbeiner Dasein zu gewährleisten.</p></div><div><img src="/static/img/photos/Dr.J.Covi-Dijkhuizen.jpg" class="rounded-full max-h-64 mb-8"><h2>“Wir haben ein neues Konzept der Tierversorgung entwickelt, durch internationale Erfahrung und in Kollaboration mit einem Netzwerk aus Spezialisten.”</h2><p>Dr. Jennifer Covi-Dijkhuizen</p></div></div></section><section class="content-center items-center"><div class="md:grid gap-16 md:grid-cols-2"><div class="pb-8"><h2>Adresse</h2><div>Eduard-Bodem-Gasse 3 (EG nord)</div><div>6020 Innsbruck</div><div>Tirol, Österreich</div><h2 class="mt-4">E-mail</h2><address><a href="mailto:praxis@tierundarzt.at">praxis@tierundarzt.at</a></address><h2 class="mt-4">Telefon</h2><address>0676 526 04 38</address><div class="mt-2 font-bold">Außerhalb unser Öffnungszeiten:</div>Notdienst Innsbruck-Stadt<br><address>0676 88 508 82 444</address><p>Mehr info: <a href="https://www.tierarzt-notdienst.tirol/notdienst" target="_blank">www.tierarzt-notdienst.tirol</a></p><h2 class="mt-4">Erreichbarkeit</h2><div>&bull; Öffentlich erreichbar mit Buslinien <span style="color: white; background: #385ea7; padding: 0.1em 0.4em; border-radius: 3px">T</span></div><div>&bull; Parkplatzen beim Eingang verfügbar.</div><div>&bull; Praxis ist barrierefrei.</div></div><div><h2>Öffnungszeiten</h2><p class="italic">Termin nur nach Vereinbarung.</p><div class="flex flex-row mb-4"><div class="w-36">Montag</div><div><div>09.00 - 12.00 Uhr</div><div>14.00 - 17.00 Uhr</div></div></div><div class="flex flex-row mb-4"><div class="w-36">Dienstag</div><div><div>09.00 - 12.00 Uhr</div><div>14.00 - 16.00 Uhr</div></div></div><div class="flex flex-row mb-4"><div class="w-36">Mittwoch</div><div><div>09.00 - 12.00 Uhr</div><div>14.00 - 16.00 Uhr</div></div></div><div class="flex flex-row mb-4"><div class="w-36">Donnerstag</div><div><div>09.00 - 12.00 Uhr</div><div>14.00 - 16.00 Uhr</div></div></div><div class="flex flex-row mb-4"><div class="w-36">Freitag</div><div><div>09.00 - 12.00 Uhr</div><div>13.00 - 17.00 Uhr</div></div></div><div class="flex flex-row mb-4"><div class="w-36">Samstag &amp; Sonntag</div><div><div>Geschlossen</div></div></div><div class="flex flex-row mb-4"><div class="w-36">Feiertage</div><div><div>Geschlossen</div></div></div></div></div></section><section class="pt-6 pb-0 leading-relaxed"><div class="flex flex-col xl:flex-row xl:justify-between xl:items-start"><div class="my-1"><div><span class="font-bold">Tier &amp; Arzt</span> — Tierarztpraxis</div><div>Dr. Jennifer Covi-Dijkhuizen (GPCert Ophthal)</div></div><div class="my-1"><address>0676 526 04 38</address><address><a href="mailto:praxis@tierundarzt.at">praxis@tierundarzt.at</a></address></div><div class="my-1"><div>Eduard-Bodem-Gasse 3</div><div>6020 Innsbruck, Österreich</div></div></div></section><section class="pt-6 pb-0 leading-relaxed"><div class="flex flex-col mt-8 items-center"><a href="/dsgvo">DSGVO</a></div></section></div><div class="mountains"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,96L120,80C240,64,480,32,720,26.7C960,21,1200,43,1320,53.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,96L60,112C120,128,240,160,360,170.7C480,181,600,171,720,144C840,117,960,75,1080,53.3C1200,32,1320,32,1380,32L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,288L60,266.7C120,245,240,203,360,165.3C480,128,600,96,720,101.3C840,107,960,149,1080,160C1200,171,1320,149,1380,138.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,256L60,261.3C120,267,240,277,360,250.7C480,224,600,160,720,133.3C840,107,960,117,1080,133.3C1200,149,1320,171,1380,181.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg></div></body></html>
