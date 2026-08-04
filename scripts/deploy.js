@@ -1,9 +1,6 @@
-// Shared deploy entrypoint for all sites.
+// Deploy entrypoint, run via the "deploy" npm script.
 //
-// Run via each site's "deploy" npm script (cwd = the site's package dir), e.g.
-//   npm run deploy --workspace=sites/<name>
-//
-// Reads the site's upload target from its own package.json "uploadConfig"
+// Reads the upload target from package.json's "uploadConfig"
 // field: { user, host, localDir, remoteDir }.
 
 const path = require('path');
