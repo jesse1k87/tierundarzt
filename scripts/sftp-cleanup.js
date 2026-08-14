@@ -1,7 +1,7 @@
 // Removes a feature-branch preview folder from the remote host over SFTP.
 //
 // Used by the preview-cleanup workflow when a pull request is closed/merged.
-// Reuses the same ssh2-sftp-client connection settings as scripts/sftp-deploy.js.
+// Uses ssh2-sftp-client, same as the preview-deploy tooling.
 //
 // Safety: refuses to delete unless the target is a real subfolder of the base
 // docroot, so a missing/empty slug can never wipe the production site (./www).
