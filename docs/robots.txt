@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Print and social assets for internal use, not search results.
+Disallow: /form/
+Disallow: /instagram/
+Disallow: /openingtimes/
+Disallow: /parkplatz/
+Disallow: /schild/
+Disallow: /team/
+
+Sitemap: https://tierundarzt.at/sitemap.xml

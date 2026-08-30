@@ -1,20 +1,31 @@
+const fallbackSans = [
+  'ui-sans-serif',
+  'system-ui',
+  '-apple-system',
+  'Segoe UI',
+  'Roboto',
+  'Helvetica Neue',
+  'Arial',
+  'sans-serif',
+];
+
 module.exports = {
-  content: {
-    mode: 'all',
-    content: ['./**/*.html'],
-    options: {
-      whitelist: [],
-    },
-  },
+  // Scan only the Eleventy source. The previous `./**/*.html` glob also
+  // walked node_modules and the generated docs/ output, which made every
+  // build slow and let stray classes from dependencies into the bundle.
+  content: ['./src/**/*.html'],
   theme: {
     container: {
       center: true,
     },
     extend: {
+      // A real fallback stack matters now that the faces use
+      // `font-display: swap`: this is what the first paint renders in
+      // while Futura Std is still downloading.
       fontFamily: {
-        body: ['"Futura Std"'],
-        display: ['"Futura Std"'],
-        sans: ['"Futura Std"'],
+        body: ['"Futura Std"', ...fallbackSans],
+        display: ['"Futura Std"', ...fallbackSans],
+        sans: ['"Futura Std"', ...fallbackSans],
       },
       colors: {
         pine: {

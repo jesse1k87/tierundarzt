@@ -1,32 +1,76 @@
-<title>
-  {% if title %}{{ title }} | {{ settings.title }}{% else %}{{ settings.title }}{% endif %}
-</title>
-<meta
-  property="og:title"
-  content="{% if title %}{{ title }} | {{ settings.title }}{% else %}{{ settings.title }}{% endif %}"
-/>
+{#-
+  Head metadata shared by every layout.
 
-<meta
-  name="description"
-  content="{% if description %}{{ description }} | {{ settings.description }}{% else %}{{ settings.description }}{% endif %}"
-/>
-<meta
-  property="og:description"
-  content="{% if description %}{{ description }} | {{ settings.description }}{% else %}{{ settings.description }}{% endif %}"
-/>
+  `pageTitle` / `pageDescription` are derived once here so the <title>,
+  og: and twitter: tags can never drift apart. Pages set `title`,
+  `description`, `noindex` and `preloadImage` in their front matter.
+-#}
+{%- set pageTitle = title + " | " + settings.title if title else settings.title -%}
+{%- set pageDescription = description if description else settings.description -%}
+{%- set canonicalUrl = settings.url + page.url -%}
+{%- set shareImage = settings.url + settings.share_image -%}
 
 <meta charset="UTF-8" />
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-{% if isPreview %}<meta name="Robots" content="noindex,nofollow" />{% else %}<meta name="Robots" content="All" />{% endif %}
+
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDescription }}" />
+<link rel="canonical" href="{{ canonicalUrl }}" />
+
+{#- Preview builds and internal-only pages must never be indexed. -#}
+{% if isPreview or noindex %}
+<meta name="robots" content="noindex, nofollow" />
+{% else %}
+<meta name="robots" content="index, follow, max-image-preview:large" />
+{% endif %}
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{ settings.title }}" />
+<meta property="og:locale" content="{{ settings.locale }}" />
+<meta property="og:title" content="{{ pageTitle }}" />
+<meta property="og:description" content="{{ pageDescription }}" />
+<meta property="og:url" content="{{ canonicalUrl }}" />
+<meta property="og:image" content="{{ shareImage }}" />
+<meta property="og:image:width" content="{{ settings.share_image_width }}" />
+<meta property="og:image:height" content="{{ settings.share_image_height }}" />
+<meta property="og:image:alt" content="{{ settings.share_image_alt }}" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ pageTitle }}" />
+<meta name="twitter:description" content="{{ pageDescription }}" />
+<meta name="twitter:image" content="{{ shareImage }}" />
+
+<meta name="theme-color" content="#1f380f" />
 <meta name="commit-sha" content="{{ gitsha }}" />
 
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="icon" href="/favicon.ico" />
-<link rel="alternate" hreflang="en" href="https://tierundarzt.at" />
-<link rel="alternate" hreflang="nl" href="https://tierundarzt.at/nl" />
 
-<meta property="og:type" content="website" />
-<!-- <meta property="og:image" content="https://tierundarzt.at/static/img/logo.png" /> -->
-<meta property="og:url" content="https://tierundarzt.at/{{ path }}" />
-<link rel="canonical" href="https://tierundarzt.at/{{ path }}" />
+{#-
+  Preload the two Futura faces the site actually renders (400 and 700).
+  Without this they are only discovered after the stylesheet has parsed,
+  which delays first paint of every heading and paragraph.
+-#}
+<link
+  rel="preload"
+  href="/static/fonts/futura/FuturaStdMedium.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/static/fonts/futura/FuturaStdBold.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+{#-
+  The LCP element on most pages is a CSS background image, which the
+  preload scanner cannot see. Pages declare `preloadImage` in their front
+  matter so the fetch can start alongside the stylesheet instead of after it.
+-#}
+{% if preloadImage %}
+<link rel="preload" href="{{ preloadImage }}" as="image" fetchpriority="high" />
+{% endif %}

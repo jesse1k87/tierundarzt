@@ -1,0 +1,77 @@
+{#-
+  LocalBusiness structured data. This is what lets Google show the
+  practice's address, phone number and opening hours directly in local
+  search results and the knowledge panel, so it is emitted on every
+  indexable page of the public site.
+-#}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VeterinaryCare",
+    "@id": "{{ settings.url }}/#practice",
+    "name": "Tier & Arzt",
+    "alternateName": "{{ settings.title }}",
+    "description": "{{ settings.description }}",
+    "url": "{{ settings.url }}/",
+    "telephone": "{{ settings.telephone_clean }}",
+    "email": "{{ settings.email }}",
+    "image": "{{ settings.url }}{{ settings.share_image }}",
+    "logo": "{{ settings.url }}/static/img/Tier-&-Arzt_logo.svg",
+    "hasMap": "{{ settings.maps }}",
+    "currenciesAccepted": "EUR",
+    "priceRange": "$$",
+    "isAccessibleForFree": false,
+    "publicAccess": true,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ settings.address_street }}",
+      "postalCode": "{{ settings.address_postcode }}",
+      "addressLocality": "{{ settings.address_city }}",
+      "addressRegion": "{{ settings.address_region }}",
+      "addressCountry": "AT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": {{ settings.latitude }},
+      "longitude": {{ settings.longitude }}
+    },
+    "openingHoursSpecification": [
+      {%- for slot in settings.opening_hours_schema %}
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [{% for day in slot.days %}"https://schema.org/{{ day }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+        "opens": "{{ slot.opens }}",
+        "closes": "{{ slot.closes }}"
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ],
+    "sameAs": ["https://www.instagram.com/{{ settings.instagram }}/"],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "name": "Termin buchen",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{ settings.petleo }}",
+        "inLanguage": "de-AT",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      }
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "{{ settings.address_city }}"
+    },
+    "availableService": [
+      {%- for service in settings.services %}
+      { "@type": "MedicalProcedure", "name": "{{ service }}" }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Jennifer Covi-Dijkhuizen",
+      "jobTitle": "Tierärztin"
+    }
+  }
+</script>

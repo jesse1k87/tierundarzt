@@ -1,3 +1,4 @@
+<footer>
 <section class="pt-6 pb-0 leading-relaxed">
   <div class="flex flex-col xl:flex-row xl:justify-between xl:items-start">
     <div class="my-1">
@@ -5,7 +6,7 @@
       <div>Dr. Jennifer Covi-Dijkhuizen (GPCert Ophthal)</div>
     </div>
     <div class="my-1">
-      <address>{{ settings.telephone }}</address>
+      <address><a href="tel:{{ settings.telephone_clean }}">{{ settings.telephone }}</a></address>
       <address>
         <a href="mailto:{{ settings.email }}">{{ settings.email }}</a>
       </address>
@@ -21,6 +22,7 @@
 
 <section class="pt-6 pb-0 leading-relaxed">
   <div class="flex flex-col mt-8 items-center">
-    <a href="/dsgvo">DSGVO</a>
+    <a href="/dsgvo/">DSGVO</a>
   </div>
 </section>
+</footer>

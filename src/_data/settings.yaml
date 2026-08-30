@@ -1,11 +1,46 @@
 ---
 title: Tier & Arzt - Tierarztpraxis Innsbruck
-description: Tierpraxis in Innsbruck, Tirol
+description: Tierarztpraxis in Innsbruck, Tirol. Kleintiermedizin mit Augenheilkunde, Radiologie, Innere Medizin, Chirurgie und Onkologie - Termine nach Vereinbarung.
 email: praxis@tierundarzt.at
 website: www.tierundarzt.at
+# Absolute origin, used to build canonical URLs, og:url and the sitemap.
+url: https://tierundarzt.at
+locale: de_AT
+lang: de-AT
+# Shared social sharing image (og:image / twitter:image).
+share_image: /static/img/photos/max2.jpeg
+share_image_width: 1683
+share_image_height: 947
+share_image_alt: Hund auf einer Wiese vor den Tiroler Bergen
+# Coordinates of the practice, used by the LocalBusiness structured data.
+latitude: 47.2654464
+longitude: 11.4344045
+maps: https://goo.gl/maps/MfdjSa5RmTVmrQ6P6
+# Machine-readable opening hours for schema.org (the human-readable
+# `openingtimes` list below is what the pages actually render).
+opening_hours_schema:
+  - days: [Monday]
+    opens: '09:00'
+    closes: '12:00'
+  - days: [Monday]
+    opens: '14:00'
+    closes: '17:00'
+  - days: [Tuesday, Wednesday, Thursday]
+    opens: '09:00'
+    closes: '12:00'
+  - days: [Tuesday, Wednesday, Thursday]
+    opens: '14:00'
+    closes: '16:00'
+  - days: [Friday]
+    opens: '09:00'
+    closes: '12:00'
+  - days: [Friday]
+    opens: '13:00'
+    closes: '17:00'
 # telephone: 0512-890-511
 telephone: 0676 526 04 38
-telephone_clean: +436765260438
+# Quoted: unquoted, YAML reads `+43...` as an integer and drops the leading `+`.
+telephone_clean: '+436765260438'
 address_street: Eduard-Bodem-Gasse 3
 address_street_add: EG nord
 address_postcode: 6020
@@ -13,6 +48,14 @@ address_city: Innsbruck
 address_region: Tirol
 address_land: Österreich
 instagram: tierundarzt
+# Rendered into the LocalBusiness structured data as availableService.
+services:
+  - Augenheilkunde
+  - Radiologie und Ultraschall
+  - Innere Medizin
+  - Onkologie
+  - Chirurgie
+  - Orthopädie
 petleo: 'https://petleo.app/?iframe=true&group=0&lang=de&redirect_url=/clinic/32286151e370e832b268af43e70786b2171d1b2b9ecc51f3979c59e18f40ca43/branch/1/book-appointment/'
 pages:
   - title: Über uns

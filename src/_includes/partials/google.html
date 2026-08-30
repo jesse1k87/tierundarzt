@@ -1,3 +1,11 @@
+{#-
+  Google Analytics. The preconnect lets the TLS handshake to the tag
+  server start immediately rather than waiting for the async script
+  request to be dispatched.
+-#}
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+<link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
 <meta name="google-site-verification" content="UiLTNRx8pUX4WZtqgqAOEH2nRRKo0dtAsUjfvx9Qc5o" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1D2GT6GH2"></script>
 <script>
