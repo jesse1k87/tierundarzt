@@ -31,11 +31,6 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('dd LLL yyyy');
   });
 
-  // ISO-8601 date, used for <lastmod> in sitemap.xml
-  eleventyConfig.addFilter('isoDate', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
-  });
-
   // Syntax Highlighting for Code blocks
   eleventyConfig.addPlugin(syntaxHighlight);
 
@@ -52,6 +47,13 @@ module.exports = function (eleventyConfig) {
 
   // Copy favicon to route of /docs
   eleventyConfig.addPassthroughCopy('./src/favicon.ico');
+
+  // GitHub Pages control files. These live in src/ so that a clean rebuild
+  // reproduces the whole publishing directory: CNAME holds the custom domain
+  // (losing it unsets the domain), and .nojekyll tells Pages to publish the
+  // output as-is instead of running it through Jekyll first.
+  eleventyConfig.addPassthroughCopy('./src/CNAME');
+  eleventyConfig.addPassthroughCopy({ './src/.nojekyll': '.nojekyll' });
 
   // Minify HTML
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
