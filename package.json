@@ -10,6 +10,7 @@
     "browsersync": "browser-sync start --server 'docs' --files 'docs' --port 8080 --no-notify --no-open",
     "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production postcss src/static/css/tailwind.css --o docs/static/css/style.css",
     "css": "postcss src/static/css/tailwind.css --o docs/static/css/style.css --watch",
+    "docs:check": "node scripts/check-docs-fresh.js",
     "debug": "set DEBUG=* & eleventy",
     "dev": "npm-run-all --parallel css eleventy browsersync",
     "eleventy": "eleventy --watch --serve",

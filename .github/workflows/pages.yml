@@ -1,0 +1,47 @@
+# docs/ is the GitHub Pages publishing directory (Settings -> Pages ->
+# "Deploy from a branch", main / docs). Pages serves whatever is committed
+# there verbatim; it never runs this build. So the one thing that can break
+# the site is docs/ drifting out of sync with src/ - the deploy would happily
+# publish stale HTML.
+#
+# This workflow rebuilds from src/ and fails if the result differs from what
+# is committed, which turns that silent drift into a red check.
+
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-build-output:
+    name: docs/ matches src/
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build the site
+        run: npm run build
+
+      - name: Verify docs/ is up to date
+        run: node scripts/check-docs-fresh.js
+
+      - name: Check the Pages control files survived the build
+        run: |
+          test -f docs/CNAME    || { echo "docs/CNAME missing - the custom domain would be unset"; exit 1; }
+          test -f docs/.nojekyll || { echo "docs/.nojekyll missing - Pages would run Jekyll over the output"; exit 1; }
+          test -f docs/index.html
+          test -f docs/sitemap.xml
+          test -f docs/robots.txt
+          echo "CNAME -> $(cat docs/CNAME)"
