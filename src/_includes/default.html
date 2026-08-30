@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ settings.lang }}">
   <head>
     {% include "./partials/meta.html" %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-    {% include "./partials/contact-form-js.html" %} {% include "./partials/google.html" %}
+    {% if not noindex %}{% include "./partials/schema.html" %}{% endif %}
+    {% include "./partials/google.html" %}
   </head>
   <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
     {% include "./partials/navbar.html" %}
     <div class="content">
-      {% include "./partials/banner.html" %} {{ content | safe }} {% include
-      "./partials/footer.html" %}
+      {% include "./partials/banner.html" %}
+      <main id="main">{{ content | safe }}</main>
+      {% include "./partials/footer.html" %}
     </div>
     {% include "./partials/mountains.html" %}
+    {#-
+      The EmailJS SDK used to be loaded on every page from a third-party
+      CDN even though the contact form only exists on pages that opt in.
+      Pages that render the form set `hasContactForm: true`.
+    -#}
+    {% if hasContactForm %}{% include "./partials/contact-form-js.html" %}{% endif %}
   </body>
 </html>

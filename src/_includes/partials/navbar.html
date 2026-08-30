@@ -1,9 +1,11 @@
-<section class="bg-pine">
-  <nav class="px-6 py-4 md:p-6 lg:py-6 xl:py-8 flex flex-nowrap flex-wrap justify-between">
+<header class="bg-pine">
+  <nav aria-label="Hauptnavigation" class="px-6 py-4 md:p-6 lg:py-6 xl:py-8 flex flex-nowrap flex-wrap justify-between">
     <div class="flex flex-col justify-center self-start">
+      {#- `alt` is not a valid attribute on <a>; the link had no accessible
+          name at all. aria-label gives it one without changing the layout. -#}
       <a
         class="logo flex justify-center items-end h-12 md:h-24 lg:h-32 w-12 md:w-24 lg:w-32"
-        alt="Logo of Tier & Arzt"
+        aria-label="Tier &amp; Arzt - zur Startseite"
         href="/"
       ></a>
       <div class="text-white text-xs tracking-widest hidden lg:flex self-center">
@@ -12,7 +14,7 @@
     </div>
 
     <input type="checkbox" class="check hidden" id="checked" />
-    <label class="menu-toggle md:hidden lg:hidden order-3 justify-between" for="checked">
+    <label class="menu-toggle md:hidden lg:hidden order-3 justify-between" for="checked" aria-label="Menü öffnen">
       <span class="bar top"></span>
       <span class="bar middle"></span>
       <span class="bar bottom"></span>
@@ -40,4 +42,4 @@
       </ul>
     </div>
   </nav>
-</section>
+</header>

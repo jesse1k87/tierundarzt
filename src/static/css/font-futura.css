@@ -1,55 +1,89 @@
+/*
+ * Futura Std — the only font family the site actually renders.
+ *
+ * `font-display: swap` lets text paint immediately in the fallback face
+ * instead of staying invisible while the webfont loads, which is what
+ * Lighthouse flags as "Ensure text remains visible during webfont load".
+ * woff2 is listed first and woff kept as a fallback: browsers download only
+ * the first format they support, so this costs nothing for modern clients.
+ */
+
 @font-face {
   font-weight: 200;
   font-family: 'Futura Std';
   font-style: normal;
-  src: url('./../fonts/futura/FuturaStdLight.woff') format('woff');
+  font-display: swap;
+  src:
+    url('./../fonts/futura/FuturaStdLight.woff2') format('woff2'),
+    url('./../fonts/futura/FuturaStdLight.woff') format('woff');
 }
 
 @font-face {
   font-weight: 300;
   font-family: 'Futura Std';
   font-style: normal;
-  src: url('./../fonts/futura/FuturaStdBook.woff') format('woff');
+  font-display: swap;
+  src:
+    url('./../fonts/futura/FuturaStdBook.woff2') format('woff2'),
+    url('./../fonts/futura/FuturaStdBook.woff') format('woff');
 }
 
 @font-face {
   font-weight: 400; /* normal */
   font-family: 'Futura Std';
   font-style: normal;
-  src: url('./../fonts/futura/FuturaStdMedium.woff') format('woff');
+  font-display: swap;
+  src:
+    url('./../fonts/futura/FuturaStdMedium.woff2') format('woff2'),
+    url('./../fonts/futura/FuturaStdMedium.woff') format('woff');
 }
 
 @font-face {
   font-weight: 500;
   font-family: 'Futura Std';
   font-style: normal;
-  src: url('./../fonts/futura/FuturaStdBold.woff') format('woff');
+  font-display: swap;
+  src:
+    url('./../fonts/futura/FuturaStdBold.woff2') format('woff2'),
+    url('./../fonts/futura/FuturaStdBold.woff') format('woff');
 }
 
 @font-face {
   font-weight: 600;
   font-family: 'Futura Std';
   font-style: normal;
-  src: url('./../fonts/futura/FuturaStdHeavy.woff') format('woff');
+  font-display: swap;
+  src:
+    url('./../fonts/futura/FuturaStdHeavy.woff2') format('woff2'),
+    url('./../fonts/futura/FuturaStdHeavy.woff') format('woff');
 }
 
 @font-face {
   font-weight: 700; /* bold  */
   font-family: 'Futura Std';
   font-style: normal;
-  src: url('./../fonts/futura/FuturaStdBold.woff') format('woff');
+  font-display: swap;
+  src:
+    url('./../fonts/futura/FuturaStdBold.woff2') format('woff2'),
+    url('./../fonts/futura/FuturaStdBold.woff') format('woff');
 }
 
 @font-face {
   font-weight: 800;
   font-family: 'Futura Std';
   font-style: normal;
-  src: url('./../fonts/futura/FuturaStdExtraBold.woff') format('woff');
+  font-display: swap;
+  src:
+    url('./../fonts/futura/FuturaStdExtraBold.woff2') format('woff2'),
+    url('./../fonts/futura/FuturaStdExtraBold.woff') format('woff');
 }
 
 @font-face {
   font-weight: 900;
   font-family: 'Futura Std';
   font-style: normal;
-  src: url('./../fonts/futura/FuturaStdExtraBold.woff') format('woff');
+  font-display: swap;
+  src:
+    url('./../fonts/futura/FuturaStdExtraBold.woff2') format('woff2'),
+    url('./../fonts/futura/FuturaStdExtraBold.woff') format('woff');
 }

@@ -1,0 +1,16 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+{% if isPreview %}Disallow: /{% else %}Allow: /
+
+# Print and social assets for internal use, not search results.
+Disallow: /form/
+Disallow: /instagram/
+Disallow: /openingtimes/
+Disallow: /parkplatz/
+Disallow: /schild/
+Disallow: /team/
+
+Sitemap: {{ settings.url }}/sitemap.xml{% endif %}

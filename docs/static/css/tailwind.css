@@ -1,5 +1,4 @@
 @import './font-futura.css';
-@import './font-meta.css';
 
 @tailwind base;
 @tailwind components;
@@ -61,21 +60,36 @@ button.sage {
   @apply bg-cover bg-center bg-no-repeat bg-origin-border;
 }
 
+/*
+ * The page sections now sit inside <main> / <footer> landmarks rather than
+ * directly under .content, so each of these rules matches both the direct
+ * child and the landmark-wrapped variant.
+ */
 .content,
+.content > main,
+.content > footer,
+body > header,
 body > section {
   @apply w-full flex flex-col content-center items-center;
 }
-section {
+section,
+header {
   @apply object-cover object-center bg-cover bg-center bg-no-repeat;
 }
-.content > section {
+.content > section,
+.content > main > section,
+.content > footer > section {
   @apply p-8 md:mt-4 md:mb-4;
 }
-.content > section:first-child {
+.content > section:first-child,
+.content > main > section:first-child {
   @apply md:mt-8;
 }
 
 .content > section,
+.content > main > section,
+.content > footer > section,
+header > nav,
 section > nav {
   @apply w-full;
   @apply sm:w-full;
@@ -85,6 +99,19 @@ section > nav {
 }
 section p {
   @apply mt-1 mb-6;
+}
+
+/*
+ * Keyboard-only bypass link for the navigation. Off-screen until focused,
+ * so it costs nothing visually but satisfies the "bypass blocks" a11y
+ * check that Lighthouse reports alongside the SEO score.
+ */
+.skip-link {
+  @apply absolute left-2 z-50 bg-white text-pine p-3;
+  top: -100px;
+}
+.skip-link:focus {
+  top: 0.5rem;
 }
 
 .mountains {
