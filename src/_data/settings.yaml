@@ -93,6 +93,40 @@ openingtimes:
   - day: Feiertage
     times:
       - Geschlossen
+# One-off adjustments to the regular `openingtimes` above: single dates on
+# which the practice opens at different hours or stays closed. They are
+# rendered next to the opening times and, on the day itself, in the banner.
+#
+# Both spots expire by themselves once `date` has passed. The site is a
+# static build that GitHub Pages serves verbatim, so nothing regenerates the
+# HTML on its own - the expiry runs in the browser, see
+# `partials/openingtimes-temporary-js.html`. Entries whose date is in the
+# past can be deleted from here at any time; they are already invisible.
+#
+# Quoted: unquoted, YAML reads `2026-09-16` as a timestamp and hands the
+# templates a Date object instead of the `YYYY-MM-DD` string the markup and
+# the browser-side comparison need.
+openingtimes_temporary:
+  - date: '2026-09-16'
+    label: Mi, 16.09.2026
+    times:
+      - 09.00 - 14.00 Uhr
+    banner: Heute, Mittwoch 16. September, haben wir von 09.00 bis 14.00 Uhr geöffnet.
+  - date: '2026-09-17'
+    label: Do, 17.09.2026
+    times:
+      - 09.00 - 14.00 Uhr
+    banner: Heute, Donnerstag 17. September, haben wir von 09.00 bis 14.00 Uhr geöffnet.
+  - date: '2026-09-18'
+    label: Fr, 18.09.2026
+    times:
+      - Geschlossen
+    banner: Heute, Freitag 18. September, bleibt unsere Praxis geschlossen.
+  - date: '2026-09-21'
+    label: Mo, 21.09.2026
+    times:
+      - Geschlossen
+    banner: Heute, Montag 21. September, bleibt unsere Praxis geschlossen.
 philosophie:
   - title: 01 - Hochwertige medizinische Versorgung
     text: Wir bieten den höchsten Standard von Diagnosen, Technologie, Therapien und medizinischem Handwerk. Wir wollen moderne Medizin bereitstellen, die auf unsere Kompetenz und langjähriger internationaler Erfahrung basiert.

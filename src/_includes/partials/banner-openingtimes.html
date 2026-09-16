@@ -1,0 +1,25 @@
+<!--
+  Banner for the one-off opening-time adjustments in
+  `settings.openingtimes_temporary`, alongside the general-purpose
+  `banner.html`. At most one entry is ever shown - the one whose date is today
+  - and on every other day the whole section stays out of the layout.
+
+  The published HTML is identical on all days, so picking the right entry is
+  `openingtimes-temporary-js.html`'s job. Hidden until that script says
+  otherwise: if it never runs, showing nothing beats announcing today's hours
+  on the wrong day.
+-->
+{% if settings.openingtimes_temporary | length %}
+<section class="text-center bg-sage-100" data-show-on-group hidden>
+  {% for entry in settings.openingtimes_temporary %}
+  <div data-show-on="{{ entry.date }}" hidden>
+    <span class="m-0 tracking-normal text-base">
+      <span class="font-bold">Geänderte Öffnungszeiten</span><br />
+      {{ entry.banner }}<br />
+      <span>Termin nur nach telefonischer Vereinbarung:</span>
+      <a class="font-bold" href="tel:{{ settings.telephone_clean }}">{{ settings.telephone }}</a>
+    </span>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
