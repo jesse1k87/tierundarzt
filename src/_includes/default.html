@@ -11,6 +11,7 @@
     {% include "./partials/navbar.html" %}
     <div class="content">
       {% include "./partials/banner.html" %}
+      {% include "./partials/banner-openingtimes.html" %}
       <main id="main">{{ content | safe }}</main>
       {% include "./partials/footer.html" %}
     </div>
@@ -21,5 +22,6 @@
       Pages that render the form set `hasContactForm: true`.
     -#}
     {% if hasContactForm %}{% include "./partials/contact-form-js.html" %}{% endif %}
+    {% include "./partials/openingtimes-temporary-js.html" %}
   </body>
 </html>

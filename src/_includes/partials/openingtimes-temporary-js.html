@@ -1,0 +1,70 @@
+<!--
+  Expiry for the one-off opening-time notices in
+  `settings.openingtimes_temporary`.
+
+  docs/ is a prebuilt directory that GitHub Pages serves verbatim - no
+  template ever runs again after publishing - so a date-dependent notice
+  cannot expire at build time: "16.09.2026" would sit on the live site until somebody happened
+  to rebuild it away. The visitor's browser is the only part of this that
+  knows what day it is, so the expiry happens there.
+
+  Two rules, both against the current date in Europe/Vienna (where the
+  practice is) rather than the visitor's own time zone:
+
+    [data-valid-until]  removed once that date has passed.
+    [data-show-on]      revealed only while that date is today, together with
+                        its [data-show-on-group] wrapper.
+
+  A [data-hide-when-empty] wrapper goes when its last dated child does.
+-->
+<script>
+  (function () {
+    var today;
+
+    try {
+      // en-CA renders as YYYY-MM-DD, which orders correctly as a plain string.
+      today = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Europe/Vienna',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }).format(new Date());
+    } catch (err) {
+      // No time zone data available: fall back to the visitor's local date.
+      var now = new Date();
+      today = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    }
+
+    var remove = function (el) {
+      if (el && el.parentNode) {
+        el.parentNode.removeChild(el);
+      }
+    };
+
+    var expiring = document.querySelectorAll('[data-valid-until]');
+    for (var i = 0; i < expiring.length; i++) {
+      if (expiring[i].getAttribute('data-valid-until') < today) {
+        remove(expiring[i]);
+      }
+    }
+
+    var daily = document.querySelectorAll('[data-show-on]');
+    for (var j = 0; j < daily.length; j++) {
+      if (daily[j].getAttribute('data-show-on') === today) {
+        daily[j].hidden = false;
+
+        var group = daily[j].closest('[data-show-on-group]');
+        if (group) {
+          group.hidden = false;
+        }
+      }
+    }
+
+    var groups = document.querySelectorAll('[data-hide-when-empty]');
+    for (var k = 0; k < groups.length; k++) {
+      if (!groups[k].querySelector('[data-valid-until]')) {
+        remove(groups[k]);
+      }
+    }
+  })();
+</script>

@@ -1,0 +1,28 @@
+<!--
+  The one-off adjustments from `settings.openingtimes_temporary`, listed
+  underneath the regular opening times.
+
+  Every row carries the date it is about and is dropped by
+  `openingtimes-temporary-js.html` once that date has passed; the heading goes
+  with the last row. Rendered as-is, so a visitor without JavaScript still
+  sees the notices - the worst case there is a row that outstays its date,
+  which beats never showing it at all.
+
+  Pages can set `temporaryLabelWidth` in their front matter to line the date
+  column up with the list they append this to.
+-->
+{% if settings.openingtimes_temporary | length %}
+<div class="mt-2" data-hide-when-empty>
+  <h3 class="font-bold">Geänderte Öffnungszeiten</h3>
+  {% for entry in settings.openingtimes_temporary %}
+  <div class="flex flex-row mt-2 px-3 py-2 bg-sage-300" data-valid-until="{{ entry.date }}">
+    <div class="{{ temporaryLabelWidth | default('w-36') }}">{{ entry.label }}</div>
+    <div>
+      {% for time in entry.times %}
+      <div>{{ time }}</div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
