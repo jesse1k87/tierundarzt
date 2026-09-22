@@ -24,9 +24,30 @@
       <ul class="justify-end flex-1 md:pt-0 md:flex">
         {% for item in settings.pages %}
         <li class="text-center">
-          <a class="inline-block p-6" href="{{ item.url }}">
+          <a
+            class="inline-block p-6"
+            href="{{ item.url }}"
+            {% if item.external %}target="_blank" rel="noopener"{% endif %}
+          >
             <span class="button text-white {{ 'border-b-2 border-white' if page.url == item.url  }}"
-              >{{ item.title }}</span
+              >{{ item.title }}{% if item.external %}
+              <svg
+                class="inline-block h-3.5 w-3.5 -mt-1 ml-0.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              <span class="sr-only">(öffnet in neuem Tab)</span>
+              {% endif %}</span
             >
           </a>
         </li>

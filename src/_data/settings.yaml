@@ -66,6 +66,7 @@ pages:
     url: '/kontakt/'
   - title: Termin buchen
     url: 'https://petleo.app/?iframe=true&group=0&lang=de&redirect_url=/clinic/32286151e370e832b268af43e70786b2171d1b2b9ecc51f3979c59e18f40ca43/branch/1/book-appointment/'
+    external: true
 openingtimes:
   - day: Montag
     times:
