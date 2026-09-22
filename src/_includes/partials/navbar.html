@@ -30,9 +30,13 @@
             {% if item.external %}target="_blank" rel="noopener"{% endif %}
           >
             <span class="button text-white {{ 'border-b-2 border-white' if page.url == item.url  }}"
-              >{{ item.title }}{% if item.external %}
+              >{{ item.title }}{% if item.external %}{#- Sized with width/height
+              attributes rather than utility classes: visitors can hold a cached
+              stylesheet, and without them the icon renders full-width. -#}
               <svg
-                class="inline-block h-3.5 w-3.5 -mt-1 ml-0.5"
+                width="14"
+                height="14"
+                style="display: inline-block; vertical-align: -0.1em; margin-left: 0.35em"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -46,7 +50,6 @@
                 <polyline points="15 3 21 3 21 9" />
                 <line x1="10" y1="14" x2="21" y2="3" />
               </svg>
-              <span class="sr-only">(öffnet in neuem Tab)</span>
               {% endif %}</span
             >
           </a>
