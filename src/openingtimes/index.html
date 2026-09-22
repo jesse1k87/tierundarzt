@@ -14,8 +14,10 @@ temporaryLabelWidth: w-[200px]
     <img src="/static/img/Tier-&-Arzt_logo_black.svg" alt="Tier &amp; Arzt Logo" width="128" height="128" style="width: 8em; height: 8em" />
   </div>
   <div class="flex flex-col gap-4">
-    <h2>Öffnungszeiten*</h2>
-    <div class="italic">Termin nur nach telefonischer Vereinbarung.</div>
+    <h2>Öffnungszeiten</h2>
+    <div class="italic">
+      Termin nur nach telefonischer Vereinbarung: {{ settings.telephone }}
+    </div>
     {% for day in settings.openingtimes %}
     <div class="flex flex-row gap-2">
       <div class="w-[200px]">{{ day.day }}</div>
@@ -27,5 +29,4 @@ temporaryLabelWidth: w-[200px]
     </div>
     {% endfor %} {% include "./../_includes/partials/openingtimes-temporary.html" %}
   </div>
-  <div>*neue Öffnungszeiten ab 23. Januar 2026</div>
 </div>
