@@ -5,9 +5,9 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
   </head>
 
-  <body class="font-body tracking-wide flex {% if showFooter %}flex-col items-center{% else %}justify-center{% endif %}">
+  <body class="font-body tracking-wide flex {% if showFooter %}flex-col items-start{% else %}justify-center{% endif %}">
     {% if showFooter %}
-    <div class="flex justify-center w-full">{{ content | safe }}</div>
+    <div class="flex justify-start w-full">{{ content | safe }}</div>
     <div class="footer-fullwidth">{% include "./partials/footer.html" %}</div>
     {% else %}
     {{ content | safe }}
