@@ -5,8 +5,13 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
   </head>
 
-  <body class="font-body tracking-wide flex justify-center">
+  <body class="font-body tracking-wide flex {% if showFooter %}flex-col items-center{% else %}justify-center{% endif %}">
+    {% if showFooter %}
+    <div class="flex justify-center w-full">{{ content | safe }}</div>
+    <div class="footer-fullwidth">{% include "./partials/footer.html" %}</div>
+    {% else %}
     {{ content | safe }}
+    {% endif %}
     {% include "./partials/openingtimes-temporary-js.html" %}
   </body>
 </html>

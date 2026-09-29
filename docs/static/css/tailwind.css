@@ -97,6 +97,16 @@ section > nav {
   @apply lg:w-5/6;
   @apply xl:w-1/2;
 }
+/* Footer on pages outside .content (e.g. /openingtimes/): full page width. */
+.footer-fullwidth {
+  @apply w-full;
+}
+.footer-fullwidth > footer {
+  @apply w-full flex flex-col items-center;
+}
+.footer-fullwidth > footer > section {
+  @apply w-full p-8;
+}
 section p {
   @apply mt-1 mb-6;
 }
